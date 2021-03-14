@@ -1,13 +1,13 @@
 import React from 'react';
 import '../Assets/styles/Sidebar.css';
+import Menu from './Menu';
+import Profile from './Profile';
 
 const Sidebar = () => {
     return  <div className="sidebar">
-                <h1>Sidebar</h1>
-                home 
-                search
-                tv
-                movie
+                <div className="sidebar__logo">R</div>
+                <Menu />
+                <Profile />
             </div>;
 }
 
