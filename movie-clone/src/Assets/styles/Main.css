@@ -1,3 +1,45 @@
 .main {
     flex: .9;
+    height: 100vh;
+    overflow: scroll;
+}
+.main__hero {
+    background: #00000073;
+    background-image: url('https://www.10wallpaper.com/wallpaper/1366x768/1712/Star_Wars_The_Last_Jedi_2017_Movies_4K_1366x768.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-attachment: fixed;
+    padding: 650px 150px 100px;
+    position: relative;
+}
+.main__content {
+    max-width: 700px;
+}
+.main__playbtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vmax;
+    opacity: 0.85;
+}
+.main__contenttitle {
+    font-size: 60px;
+    font-weight: 700;
+}
+.main__rating svg {
+    color: yellow;
+}
+.main__genrelist {
+    list-style: none;
+    display: flex;
+}
+.main__genrelist li + li {
+    list-style-type: disc;
+    margin-left: 10px;
+}
+.main__genrelist li {
+    padding: 10px 15px 0 0;
 }

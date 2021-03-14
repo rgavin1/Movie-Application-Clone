@@ -1,11 +1,58 @@
 import React from 'react';
 import '../Assets/styles/Main.css';
+import Hero from './Hero';
 
 const Main = () => {
     return  <div className="main">
-                <h1>Main</h1>
-                Image
-                Suggestions
+                <Hero />
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
+                <div>Suggestions</div>
             </div>;
 } 
 
