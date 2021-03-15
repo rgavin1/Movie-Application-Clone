@@ -1,7 +1,7 @@
 .main {
     flex: .9;
-    height: 100vh;
     overflow: scroll;
+    max-height: 100vh;
 }
 .main__hero {
     background: #00000073;
@@ -15,7 +15,16 @@
     position: relative;
 }
 .main__content {
-    max-width: 700px;
+    max-width: 950px;
+}
+.main__contentmeta {
+    display: flex;
+    gap: 1em;
+    margin: 15px 0;
+}
+.main__contentmeta p {
+    max-width: 80%;
+    line-height: 160%;
 }
 .main__playbtn {
     position: absolute;
@@ -24,6 +33,8 @@
     transform: translate(-50%, -50%);
     font-size: 5vmax;
     opacity: 0.85;
+    color: #fff;
+    transition: color .1s linear;
 }
 .main__contenttitle {
     font-size: 60px;
@@ -31,10 +42,14 @@
 }
 .main__rating svg {
     color: yellow;
+    margin-right: 5px;
 }
 .main__genrelist {
     list-style: none;
     display: flex;
+}
+.main__genrelist li::marker {
+    color: aquamarine;
 }
 .main__genrelist li + li {
     list-style-type: disc;
@@ -43,3 +58,52 @@
 .main__genrelist li {
     padding: 10px 15px 0 0;
 }
+.main__trends {
+    padding: 30px;
+}
+.slick-slide > div {
+    padding: 10px;
+}
+.main__imagesliderTitle {
+    font-size: 44px;
+    padding: 15px;
+}
+.main__imageslide img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.main__imageslidename {
+    text-align: center;
+    padding: 20px;
+}
+/* Slider */
+.slick-prev:before, .slick-next:before {
+    font-size: 30px !important;
+}
+.slick-prev {
+    left: -70px;
+}
+.slick-next {
+    right: -70px;
+}
+.slick-prev, .slick-next {
+    top: 40%;
+    width: 50px;
+    height: 50px;
+}
+@media screen and (max-width: 1300px) {
+    .main__hero {
+        background-position: center;
+        padding: 300px 40px 30px;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .main__playbtn:hover {
+        color: aquamarine;
+        cursor: pointer;
+    }
+}
+@media screen and (max-width: 991px) {
+
+  }

@@ -1,0 +1,14 @@
+.information {
+    display: flex;
+    padding: 70px 10px;
+}
+.information__image {
+    margin-right: auto;
+}
+.information__image img {
+    max-width: 800px;
+}
+.information__data {
+    width: 400px;
+    margin-right: 50px;
+}

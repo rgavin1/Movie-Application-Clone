@@ -1,0 +1,5 @@
+.search {
+    flex: .9 1;
+    overflow: scroll;
+    max-height: 100vh;
+}

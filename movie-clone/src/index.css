@@ -386,5 +386,9 @@ html, body {
   height: 100vh;
   background: #161616;
   font-family: 'Nunito Sans', sans-serif;
+  font-size: 18px;
   color: #fff;
+}
+a {
+  color: #797979;
 }

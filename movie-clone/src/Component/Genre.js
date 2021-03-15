@@ -1,13 +1,16 @@
 import React from 'react';
+import List from '../Assets/data/genres.json';
 
-const Genre = () => {
+const Genre = ({ genres }) => {
     return  <div className="main__genre">
                 <ul className="main__genrelist">
-                    <li>commodo</li>
-                    <li>commo</li>
-                    <li>commodoffd</li>
-                    <li>modo</li>
-                    <li>commodo</li>
+                    { genres.map((id) => {
+                        const temp = List.genres.find((element) => element.id === id);
+                        if (temp.name !== undefined) {
+                          id = temp.name;
+                        }
+                        return <li key={id}>{id}</li>
+                    }) }
                 </ul>
             </div>;
 } 

@@ -1,4 +1,11 @@
 .app {
   display: flex;
+  flex-wrap: wrap;
   height: 100vh;
+}
+
+@media screen and (max-width: 991px) {
+  .app {
+      flex-direction: column-reverse;
+  }
 }

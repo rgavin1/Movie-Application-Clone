@@ -2,9 +2,9 @@ import React from 'react';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Rating = () => {
+const Rating = ({ rate }) => {
     return  <div className="main__rating">
-                <FontAwesomeIcon icon={faStar} /><span>10.0</span>
+                <FontAwesomeIcon icon={faStar} /><span>{rate}</span>
             </div>;
 } 
 
