@@ -101,8 +101,8 @@
   font-size: 60px !important;
   opacity: 0 !important;
 }
-.slick-prev:hover::after,
-.slick-next:hover::before {
+.slick-prev:hover:after,
+.slick-next:hover:before {
   opacity: 1 !important;
 }
 .slick-prev {
