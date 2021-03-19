@@ -1,7 +1,8 @@
 .main {
     flex: .95;
-    overflow: scroll;
-    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 100%;
 }
 .main__hero {
     background: #00000073;
@@ -80,11 +81,21 @@
 .main__overview {
     max-width: 575px;
 }
+.main__imagecontainer {
+    overflow: hidden;
+}
 /* Animation */
 .main__container--hidden {
     overflow: hidden;
 }
 /* Slider */
+.slick-slide {
+    cursor: pointer;
+}
+.slick-slide:hover img {
+    transform: scale(1.06);
+    transition: transform .5s cubic-bezier(0.26, 0.52, 0.67, 0.9);
+}
 .slick-prev:before, .slick-next:before {
     font-size: 30px !important;
 }
