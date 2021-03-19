@@ -10,8 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Component } from 'react';
 
-import { motion } from "framer-motion"
-
 require('dotenv').config();
 
 
@@ -44,7 +42,6 @@ class App extends Component {
       });
   }
   render(){
-    console.log(this.state.trending_all);
     return (
       <Router>
       <div className="app">

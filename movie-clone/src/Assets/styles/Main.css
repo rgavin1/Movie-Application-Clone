@@ -11,7 +11,7 @@
     background-size: cover;
     background-blend-mode: overlay;
     background-attachment: fixed;
-    padding: 650px 150px 100px;
+    padding: 400px 150px 100px;
     position: relative;
 }
 .main__content {
@@ -59,7 +59,7 @@
     padding: 10px 15px 0 0;
 }
 .main__trends {
-    padding: 30px;
+    padding: 90px;
 }
 .slick-slide > div {
     padding: 10px;
@@ -76,6 +76,13 @@
 .main__imageslidename {
     text-align: center;
     padding: 20px;
+}
+.main__overview {
+    max-width: 575px;
+}
+/* Animation */
+.main__container--hidden {
+    overflow: hidden;
 }
 /* Slider */
 .slick-prev:before, .slick-next:before {
