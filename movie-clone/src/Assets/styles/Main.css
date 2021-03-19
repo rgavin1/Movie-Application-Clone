@@ -1,5 +1,5 @@
 .main {
-    flex: .9;
+    flex: .95;
     overflow: scroll;
     max-height: 100vh;
 }
