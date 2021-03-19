@@ -1,15 +1,15 @@
 import React from 'react';
 import Slider from "react-slick";
 
+
 const ImageSlider = ({ text, genre, trending }) => {
     var settings = {
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 1
+        slidesToScroll: 1,
       };
-      console.log(trending);
       return (
         <div className="main__imageslider">
         <div className="main__imagesliderTitle">{text}</div>

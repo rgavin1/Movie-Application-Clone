@@ -1,127 +1,138 @@
 .main {
-    flex: .95;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 100%;
+  flex: 0.95;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 100%;
 }
 .main__hero {
-    background: #00000073;
-    background-image: url('https://www.10wallpaper.com/wallpaper/1366x768/1712/Star_Wars_The_Last_Jedi_2017_Movies_4K_1366x768.jpg');
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: cover;
-    background-blend-mode: overlay;
-    background-attachment: fixed;
-    padding: 400px 40px 100px;
-    position: relative;
+  background: #00000073;
+  background-image: url("https://www.10wallpaper.com/wallpaper/1366x768/1712/Star_Wars_The_Last_Jedi_2017_Movies_4K_1366x768.jpg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  padding: 400px 40px 100px;
+  position: relative;
 }
 .main__content {
-    max-width: 950px;
+  max-width: 950px;
 }
 .main__contentmeta {
-    display: flex;
-    gap: 1em;
-    margin: 15px 0;
+  display: flex;
+  gap: 1em;
+  margin: 15px 0;
 }
 .main__contentmeta p {
-    max-width: 80%;
-    line-height: 160%;
+  max-width: 80%;
+  line-height: 160%;
 }
 .main__playbtn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5vmax;
-    opacity: 0.85;
-    color: #fff;
-    transition: color .1s linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5vmax;
+  opacity: 0.85;
+  color: #fff;
+  transition: color 0.1s linear;
 }
 .main__contenttitle {
-    font-size: 60px;
-    font-weight: 700;
+  font-size: 60px;
+  font-weight: 700;
 }
 .main__rating svg {
-    color: yellow;
-    margin-right: 5px;
+  color: yellow;
+  margin-right: 5px;
 }
 .main__genrelist {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 .main__genrelist li::marker {
-    color: aquamarine;
+  color: aquamarine;
 }
 .main__genrelist li + li {
-    list-style-type: disc;
-    margin-left: 10px;
+  list-style-type: disc;
+  margin-left: 10px;
 }
 .main__genrelist li {
-    padding: 10px 15px 0 0;
+  padding: 10px 15px 0 0;
 }
 .main__trends {
-    padding: 30px;
+  padding: 30px;
 }
 .slick-slide > div {
-    padding: 10px;
+  padding: 10px;
 }
 .main__imagesliderTitle {
-    font-size: 44px;
-    padding: 15px;
+  font-size: 44px;
+  padding: 15px;
 }
 .main__imageslide img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .main__imageslidename {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
 }
 .main__overview {
-    max-width: 575px;
+  max-width: 575px;
 }
 .main__imagecontainer {
-    overflow: hidden;
+  overflow: hidden;
 }
 /* Animation */
 .main__container--hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
 /* Slider */
 .slick-slide {
-    cursor: pointer;
+  cursor: pointer;
 }
 .slick-slide:hover img {
-    transform: scale(1.06);
-    transition: transform .5s cubic-bezier(0.26, 0.52, 0.67, 0.9);
+  transform: scale(1.06);
+  transition: transform 0.5s cubic-bezier(0.26, 0.52, 0.67, 0.9);
 }
-.slick-prev:before, .slick-next:before {
-    font-size: 30px !important;
+.slick-prev:before,
+.slick-next:before {
+  font-size: 60px !important;
+  opacity: 0 !important;
+}
+.slick-prev:hover::after,
+.slick-next:hover::before {
+  opacity: 1 !important;
 }
 .slick-prev {
-    left: -70px;
+  left: -70px;
 }
 .slick-next {
-    right: -70px;
+  right: -70px;
 }
-.slick-prev, .slick-next {
-    top: 40%;
-    width: 50px;
-    height: 50px;
+.slick-prev,
+.slick-next {
+  width: 160px !important;
+  height: 100% !important;
+  z-index: 11;
+  transition: all .5s cubic-bezier(0.26, 0.52, 0.67, 0.9);
+}
+.slick-prev:hover,
+.slick-next:hover {
+    background: #5f5f5f3b !important; 
 }
 @media screen and (max-width: 1300px) {
-    .main__hero {
-        background-position: center;
-        padding: 300px 40px 30px;
-    }
+  .main__hero {
+    background-position: center;
+    padding: 300px 40px 30px;
+  }
 }
 @media screen and (min-width: 1024px) {
-    .main__playbtn:hover {
-        color: aquamarine;
-        cursor: pointer;
-    }
+  .main__playbtn:hover {
+    color: aquamarine;
+    cursor: pointer;
+  }
 }
 @media screen and (max-width: 991px) {
-
-  }
+}

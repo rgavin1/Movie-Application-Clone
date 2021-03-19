@@ -4,6 +4,9 @@ import Main from './Component/Main';
 import Searchpage from './Component/Pages/Search';
 import Tvpage from './Component/Pages/Tv';
 import Moviespage from './Component/Pages/Film';
+// Single Pages
+import SingleTv from './Component/Pages/SingleTv';
+import SingleFilm from './Component/Pages/SingleFilm';
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -58,6 +61,12 @@ class App extends Component {
               </Route>
               <Route path="/movie"> 
                 <Moviespage />
+              </Route>
+              <Route path="/tv/:id"> 
+                <SingleTv />
+              </Route>
+              <Route path="/movie/:id"> 
+                <SingleFilm />
               </Route>
           </Switch>
       </div>  
