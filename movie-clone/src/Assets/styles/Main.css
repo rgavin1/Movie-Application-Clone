@@ -11,7 +11,7 @@
     background-size: cover;
     background-blend-mode: overlay;
     background-attachment: fixed;
-    padding: 400px 150px 100px;
+    padding: 400px 40px 100px;
     position: relative;
 }
 .main__content {
@@ -59,7 +59,7 @@
     padding: 10px 15px 0 0;
 }
 .main__trends {
-    padding: 90px;
+    padding: 30px;
 }
 .slick-slide > div {
     padding: 10px;
