@@ -40,10 +40,11 @@ const ReleaseDate = ({ release }) => {
 
 
 const Hero = ({ feature }) => {
+    console.log(feature);
     return  <motion.div variants={heroVariant} initial="start"  animate="show" exit={{ opacity: 0 }} className="main__hero" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${feature.backdrop_path})`, }}>
                 <div className="main__content">
                     <div className="main__container--hidden">
-                        <motion.h1 variants={childVariant} className="main__contenttitle">{feature.title}</motion.h1>
+                        <motion.h1 variants={childVariant} className="main__contenttitle">{feature.title ? feature.title : feature.name }</motion.h1>
                     </div>
                     <div className="main__container--hidden">
                         <motion.div variants={childVariant} className="main__contentmeta">

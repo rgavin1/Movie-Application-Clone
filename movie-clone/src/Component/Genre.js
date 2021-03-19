@@ -6,8 +6,10 @@ const Genre = ({ genres }) => {
                 <ul className="main__genrelist">
                     { genres.map((id) => {
                         const temp = List.genres.find((element) => element.id === id);
-                        if (temp.name !== undefined) {
-                          id = temp.name;
+                        if (true) {
+                          id = '';
+                        } else {
+                          id = '';
                         }
                         return <li key={id}>{id}</li>
                     }) }

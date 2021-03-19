@@ -10,7 +10,6 @@ const ImageSlider = ({ text, genre, trending }) => {
         slidesToShow: 5,
         slidesToScroll: 1,
       };
-      console.log(trending);
       return (
         
         <div className="main__imageslider">

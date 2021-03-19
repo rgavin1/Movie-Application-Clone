@@ -45,6 +45,7 @@ class App extends Component {
       });
   }
   render(){
+    console.log(this.state.feature);
     return (
       <Router>
       <div className="app">
@@ -63,10 +64,10 @@ class App extends Component {
                 <Moviespage />
               </Route>
               <Route path="/tv/:id"> 
-                <SingleTv />
+                <SingleTv shows={this.state.trending_all} />
               </Route>
               <Route path="/movie/:id"> 
-                <SingleFilm />
+                <SingleFilm films={this.state.trending_all} />
               </Route>
           </Switch>
       </div>  

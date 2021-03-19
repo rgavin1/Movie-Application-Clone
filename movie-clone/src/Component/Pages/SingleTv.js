@@ -1,8 +1,14 @@
 import React from 'react';
+// Components
+import Hero from '../Hero';
 
-const SingleTv = () => {
+import { useParams } from 'react-router';
+
+const SingleTv = ({ shows }) => {
+    const { id } = useParams();
     return  <div className="singletv">
-                SingleTv
+                <Hero feature={shows.find((element) => element.id === id)} />
+                <h1>SingleTv - {id}</h1>
             </div>
 }
 
