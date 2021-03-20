@@ -1,6 +1,8 @@
 .information {
     display: flex;
-    padding: 70px 10px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 60px auto;
 }
 .information__image {
     margin-right: auto;

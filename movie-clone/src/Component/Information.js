@@ -1,23 +1,18 @@
 import React from 'react';
 import '.././Assets/styles/Information.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+// Components
+import MovieList from './MovieList';
+import TVList from './TVList';
 
-const Information = () => {
+const Information = ({ item, media }) => {
+    console.log(item);
     return  <div className="information">
                 <div className="information__image">
-                    <img src="https://www.10wallpaper.com/wallpaper/1366x768/1712/Star_Wars_The_Last_Jedi_2017_Movies_4K_1366x768.jpg" alt="" />
+                    <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
                 </div>
                 <div className="information__data">
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
-                    <div>Info</div>
+                    { media === "movie" ? <MovieList /> : <TVList /> }
                 </div>
             </div>
 }

@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 // Components
 import Hero from '../Hero';
+import Information from '../Information';
+// Styles
+import '../../Assets/styles/Pages/SingleTv.css';
 
-import { useParams } from 'react-router';
+require('dotenv').config();
 
 const SingleTv = () => {
     const { id } = useParams();
     const [ show, setShow ] = useState({});
 
     useEffect(() => {
-        fetchPopMovies(id);
-    }, [id]);
-    
-    function fetchPopMovies({ movie_id }){
-        fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_TMDB}&language=en-US`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB}&language=en-US`)
         .then(res => res.json())
         .then((items) => {
-            setShow(items.results);
+            setShow(items);
         })
         .catch((err) => {
             console.log(err);
         })
-    }
+    }, [id]);
 
-    console.log(show);
     return  <div className="singletv">
-                {/* <Hero feature={shows.find((element) => element.id === id)} /> */}
-                <h1>SingleTv - {id}</h1>
+                <Hero feature={show} />
+                <Information item={show} media="tv"/>
             </div>
 }
 

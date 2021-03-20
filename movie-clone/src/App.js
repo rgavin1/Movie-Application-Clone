@@ -58,8 +58,8 @@ class App extends Component {
               <Route path="/search" component={Searchpage} /> 
               <Route path="/tv" component={Tvpage} /> 
               <Route path="/movie" component={Moviespage} />
-              <Route path="/showprofile/:id" component={SingleTv} /> 
-              <Route path="/filmprofile/:id" component={SingleFilm} /> 
+              <Route path="/tv-profile/:id" component={SingleTv} /> 
+              <Route path="/movie-profile/:id" component={SingleFilm} /> 
           </Switch>
       </div>  
       </Router>
