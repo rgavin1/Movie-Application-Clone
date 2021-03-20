@@ -11,7 +11,6 @@ const Film = () => {
     const [popMovies, setMovies ] = useState([]);
     const [nowPlaying, setNowPlaying ] = useState([]);
     const [upcomingMovies, setUpcomingMovies ] = useState([]);
-    // const [topratedShows, setTopRatedShows ] = useState([]);
     
     useEffect(() => {
         fetchPopMovies();

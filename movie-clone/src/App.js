@@ -55,21 +55,11 @@ class App extends Component {
               <Route exact path="/"> 
                 <Main feature={this.state.feature} trending={this.state.trending_all} />
               </Route>
-              <Route path="/search"> 
-                <Searchpage />
-              </Route>
-              <Route path="/tv"> 
-                <Tvpage />
-              </Route>
-              <Route path="/movie"> 
-                <Moviespage />
-              </Route>
-              <Route path="/tv/:id"> 
-                <SingleTv shows={this.state.trending_all} />
-              </Route>
-              <Route path="/movie/:id"> 
-                <SingleFilm films={this.state.trending_all} />
-              </Route>
+              <Route path="/search" component={Searchpage} /> 
+              <Route path="/tv" component={Tvpage} /> 
+              <Route path="/movie" component={Moviespage} />
+              <Route path="/showprofile/:id" component={SingleTv} /> 
+              <Route path="/filmprofile/:id" component={SingleFilm} /> 
           </Switch>
       </div>  
       </Router>
