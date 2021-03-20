@@ -1,8 +1,9 @@
 import React from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const ImageSlider = ({ text, genre, trending }) => {
+const ImageSlider = ({ text, genre, trending, override = false }) => {
     var settings = {
         dots: false,
         infinite: true,
@@ -18,11 +19,11 @@ const ImageSlider = ({ text, genre, trending }) => {
           {
             trending.map((item, number) => {
               let poster;
-              if(item.media_type === genre){
+              if(item.media_type === genre || override){
                 poster = <Link key={number} to={`/${genre}/${item.id}`}>
                           <div className="main__imageslide">
                             <div className="main__imagecontainer">
-                              <img src={`https://image.tmdb.org/t/p/original${item.poster_path}`} alt={`${item.title} poster`} />
+                              <LazyLoadImage width="467px" height="701px" effect="opacity" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
                             </div>
                             <div className="main__imageslidename">{item.title ? item.title : item.name }</div>
                          </div>

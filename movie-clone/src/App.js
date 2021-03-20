@@ -30,8 +30,9 @@ class App extends Component {
       fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB}`)
       .then(res => res.json())
       .then((items) => {
+        const random_num = Math.floor(Math.random() * 19);
         this.setState({
-          feature: items.results[0],
+          feature: items.results[random_num],
           trending_all: items.results,
           searching: false
         },
