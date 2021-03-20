@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import '../../Assets/styles/Pages/Film.css';
 import Hero from '../Hero';
-import ImageSlider from '../ImageSlider';
+// import ImageSlider from '../ImageSlider';
 import Footer from '../Footer';
 
 require('dotenv').config();
@@ -14,17 +14,18 @@ const Film = () => {
         fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB}`)
         .then(res => res.json())
         .then((items) => {
-            if(items.results[0].backdrop_path) {
-                setFeature(items.results[0]);
+            const random_num = Math.floor(Math.random() * 19);
+            if(items.results[random_num].backdrop_path !== "undefined") {
+                setFeature(items.results[random_num]);
                 setSearching(false);
             }
         })
-        .catch((error) => {
+        .catch((err) => {
             setSearching(true);
-            console.log(error);
+            console.log(err);
         })
-    }, [feature]);
-
+    }, [searching]);
+    
     return  <div className="film">
                 <Hero feature={feature} />
                     <div className="film__trends">

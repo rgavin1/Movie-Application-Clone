@@ -1,6 +1,6 @@
 import React from 'react';
-import { faPlayCircle } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faPlayCircle } from '@fortawesome/free-regular-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Genre from './Genre';
 import Rating from './Rating';
 import { motion } from 'framer-motion';
@@ -40,7 +40,6 @@ const ReleaseDate = ({ release }) => {
 
 
 const Hero = ({ feature }) => {
-    console.log(feature);
     return  <motion.div variants={heroVariant} initial="start"  animate="show" exit={{ opacity: 0 }} className="main__hero" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${feature.backdrop_path})`, }}>
                 <div className="main__content">
                     <div className="main__container--hidden">

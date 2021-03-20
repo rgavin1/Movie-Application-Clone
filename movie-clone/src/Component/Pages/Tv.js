@@ -14,22 +14,23 @@ const Tv = () => {
         fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.REACT_APP_TMDB}`)
         .then(res => res.json())
         .then((items) => {
-            if(items.results[0].backdrop_path) {
+            const random_num = Math.floor(Math.random() * 19);
+            if(items.results[random_num].backdrop_path !== "undefined") {
                 setFeature(items.results[0]);
                 setSearching(false);
             }
         })
-        .catch((error) => {
+        .catch((err) => {
             setSearching(true);
-            console.log(error);
+            console.log(err);
         })
-    }, [feature])
+    }, [searching])
 
     return  <div className="tv">
                     <Hero feature={feature} />
                     <div className="tv__trends">
-                        {/* <ImageSlider text="Trending Tv Shows" />
-                        <ImageSlider text="Related Tv Shows" /> */}
+                        <ImageSlider text="Trending Tv Shows" />
+                        {/* <ImageSlider text="Related Tv Shows" /> */}
                     </div>
                 <Footer />
             </div>

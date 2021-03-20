@@ -1,5 +1,5 @@
 .tv {
-    flex: .9 1;
+    flex: .95 1;
     overflow: scroll;
     max-height: 100vh;
 }

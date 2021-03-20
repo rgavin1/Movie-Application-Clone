@@ -4,14 +4,9 @@ import List from '../Assets/data/genres.json';
 const Genre = ({ genres }) => {
     return  <div className="main__genre">
                 <ul className="main__genrelist">
-                    { genres.map((id) => {
-                        const temp = List.genres.find((element) => element.id === id);
-                        if (true) {
-                          id = '';
-                        } else {
-                          id = '';
-                        }
-                        return <li key={id}>{id}</li>
+                    { genres.map((termid, number) => {
+                        const term = List.genres.find((element) => element.id === termid);
+                        return <li key={number}>{term.name}</li>
                     }) }
                 </ul>
             </div>;

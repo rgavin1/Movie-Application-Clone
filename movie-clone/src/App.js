@@ -45,7 +45,7 @@ class App extends Component {
       });
   }
   render(){
-    console.log(this.state.feature);
+    
     return (
       <Router>
       <div className="app">
