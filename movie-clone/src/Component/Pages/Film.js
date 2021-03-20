@@ -1,36 +1,65 @@
 import React, { useState, useEffect }  from 'react';
 import '../../Assets/styles/Pages/Film.css';
 import Hero from '../Hero';
-// import ImageSlider from '../ImageSlider';
+import ImageSlider from '../ImageSlider';
 import Footer from '../Footer';
 
 require('dotenv').config();
 
 const Film = () => {
     const [feature, setFeature ] = useState([]);
-    const [searching, setSearching ] = useState(true);
-
+    const [popMovies, setMovies ] = useState([]);
+    const [nowPlaying, setNowPlaying ] = useState([]);
+    const [upcomingMovies, setUpcomingMovies ] = useState([]);
+    // const [topratedShows, setTopRatedShows ] = useState([]);
+    
     useEffect(() => {
+        fetchPopMovies();
+    }, []);
+    
+    function fetchPopMovies(){
         fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB}`)
         .then(res => res.json())
         .then((items) => {
             const random_num = Math.floor(Math.random() * 19);
-            if(items.results[random_num].backdrop_path !== "undefined") {
                 setFeature(items.results[random_num]);
-                setSearching(false);
-            }
+                setMovies(items.results);
+                fetchNowPlayingMovies();
+                fetchUpcomingMovies();
         })
         .catch((err) => {
-            setSearching(true);
             console.log(err);
         })
-    }, [searching]);
-    
+    }
+
+    function fetchNowPlayingMovies(){
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
+        .then(res => res.json())
+        .then((items) => {
+            setNowPlaying(items.results);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    function fetchUpcomingMovies(){
+        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
+        .then(res => res.json())
+        .then((items) => {
+            setUpcomingMovies(items.results);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
     return  <div className="film">
                 <Hero feature={feature} />
                     <div className="film__trends">
-                        {/* <ImageSlider text="Trending Movies" />
-                        <ImageSlider text="Related Movies" /> */}
+                        <ImageSlider text="Trending Movies" genre="movie" trending={popMovies} />
+                        <ImageSlider text="Now Playing" genre="movie" trending={nowPlaying} override={true} />
+                        <ImageSlider text="Upcoming" genre="movie" trending={upcomingMovies} override={true} />
                     </div>
                 <Footer />
             </div>

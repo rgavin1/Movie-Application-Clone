@@ -12,11 +12,10 @@ const Tv = () => {
     const [relatedshows, setRelatedshows ] = useState([]);
     const [recommendedShows, setRecommendedshows ] = useState([]);
     const [topratedShows, setTopRatedShows ] = useState([]);
-    const [searching, setSearching ] = useState(true);
 
     useEffect(() => {
         fetchPopShows();  
-    },[])
+    },[]);
 
     function fetchPopShows () {
         fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.REACT_APP_TMDB}`)
@@ -29,11 +28,9 @@ const Tv = () => {
                 fetchRelatedShows(items.results[0].id);
                 fetchRecommendedShows(items.results[0].id);
                 fetchTopRatedShows();
-                setSearching(false);
             }
         })
         .catch((err) => {
-            setSearching(true);
             console.log(err);
         })
     }
@@ -43,10 +40,8 @@ const Tv = () => {
         .then(res => res.json())
         .then((items) => {
             setRelatedshows(items.results);
-            setSearching(false);
         })
         .catch((err) => {
-            setSearching(true);
             console.log(err);
         })
     }
@@ -56,10 +51,8 @@ const Tv = () => {
         .then(res => res.json())
         .then((items) => {
             setRecommendedshows(items.results);
-            setSearching(false);
         })
         .catch((err) => {
-            setSearching(true);
             console.log(err);
         })
     }
@@ -69,10 +62,8 @@ const Tv = () => {
         .then(res => res.json())
         .then((items) => {
             setTopRatedShows(items.results);
-            setSearching(false);
         })
         .catch((err) => {
-            setSearching(true);
             console.log(err);
         })
     }
