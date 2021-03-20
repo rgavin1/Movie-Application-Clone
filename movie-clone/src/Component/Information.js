@@ -12,7 +12,7 @@ const Information = ({ item, media }) => {
                     <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
                 </div>
                 <div className="information__data">
-                    { media === "movie" ? <MovieList /> : <TVList /> }
+                    { media === "movie" ? <MovieList details={item} /> : <TVList details={item} /> }
                 </div>
             </div>
 }

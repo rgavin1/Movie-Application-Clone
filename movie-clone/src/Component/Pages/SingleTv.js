@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 // Components
 import Hero from '../Hero';
 import Information from '../Information';
+import Links from '../Links';
 // Styles
 import '../../Assets/styles/Pages/SingleTv.css';
 
@@ -25,6 +26,7 @@ const SingleTv = () => {
 
     return  <div className="singletv">
                 <Hero feature={show} />
+                <Links item={show} />
                 <Information item={show} media="tv"/>
             </div>
 }
