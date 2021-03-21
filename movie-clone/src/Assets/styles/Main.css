@@ -84,6 +84,20 @@
 .main__imagecontainer {
   overflow: hidden;
 }
+.main__contentnetwork {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-gap: 1em;
+  gap: 1em;
+  list-style: none;
+}
+.main__contentnetwork .logo.Disney\+,
+.main__contentnetwork .logo.AMC,
+.main__contentnetwork .logo.Apple.TV\+,
+.main__contentnetwork .logo.HBO {
+  filter: invert(1);
+}
 /* Animation */
 .main__container--hidden {
   overflow: hidden;

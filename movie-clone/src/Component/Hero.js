@@ -38,11 +38,22 @@ const ReleaseDate = ({ release }) => {
     return year[0];
 }
 
+const Network = ({ networks }) => {
+    return  <motion.ul variants={childVariant} className="main__contentnetwork ">
+                { networks.map(item => {
+                    return <li title={item.name} key={item.id}><img className={`logo ${item.name}`} src={`https://image.tmdb.org/t/p/w500${item.logo_path}`} alt={item.name} width="100px" /></li>
+                }) }
+            </motion.ul>;
+}
+
 
 const Hero = ({ feature }) => {
     console.log(feature);
     return  <motion.div variants={heroVariant} initial="start"  animate="show" exit={{ opacity: 0 }} className="main__hero" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${feature.backdrop_path})`, }}>
                 <div className="main__content">
+                    <div className="main__container--hidden">
+                        { feature.networks && <Network networks={feature.networks} /> }
+                    </div>
                     <div className="main__container--hidden">
                         <motion.h1 variants={childVariant} className="main__contenttitle">{feature.title ? feature.title : feature.name }</motion.h1>
                     </div>
