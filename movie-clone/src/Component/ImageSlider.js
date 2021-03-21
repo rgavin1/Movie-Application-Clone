@@ -8,7 +8,7 @@ const ImageSlider = ({ text, genre, trending, override = false }) => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 6,
         slidesToScroll: 1,
       };
       return (
@@ -23,7 +23,7 @@ const ImageSlider = ({ text, genre, trending, override = false }) => {
                 poster = <Link key={number} to={`/${genre}-profile/${item.id}`}>
                           <div className="main__imageslide">
                             <div className="main__imagecontainer">
-                              <LazyLoadImage width="467px" height="701px" effect="opacity" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
+                              <LazyLoadImage width="100%" height="auto" effect="opacity" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
                             </div>
                             <div className="main__imageslidename">{item.title ? item.title : item.name }</div>
                          </div>

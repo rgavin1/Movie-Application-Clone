@@ -1,19 +1,19 @@
 .information {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     max-width: 1600px;
     margin: 60px auto;
     padding: 0 40px;
 }
 .information__image {
-    margin-right: auto;
+    flex: .6;
 }
 .information__image img {
-    max-width: 800px;
+    max-width: 750px;
 }
 .information__data {
-    max-width: 1300px;
-    width: 50%;
+    flex: .6;
 }
 .information__tvlist {
     height: 100%;
@@ -30,7 +30,7 @@
     justify-content: space-between;
 }
 .information__data li span {
-    font-size: 24px;
+    font-size: 20px;
 }
 .information__links {
     list-style: none;
@@ -38,5 +38,5 @@
     margin: 60px auto;
 }
 .information__links a {
-    font-size: 30px;
+    font-size: 24px;
 }

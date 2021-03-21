@@ -1,10 +1,11 @@
 import React from 'react';
+import Creators from './Creators';
 
 const TVList = ({ details }) => {
     return  <div className="information__tvlist">
                 <ul>
                     <li>
-                        <span>Creators</span><span></span>
+                        <span>Creators</span><span><Creators item={details.created_by} /></span>
                     </li>
                     <li>
                         <span>Run Time</span><span></span>
