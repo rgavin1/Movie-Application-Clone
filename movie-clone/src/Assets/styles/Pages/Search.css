@@ -33,19 +33,27 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .search_resultsitem {
     flex: .4;
     min-width: 300px;
-    max-width: 323.84px;
+    max-width: 313px;
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.26, 0.52, 0.67, 0.9);
+}
+.search_resultsitem:hover img {
+    transform: scale(1.1);
 }
 .search_image {
     width: 100%;
     min-width: 100%;
-    min-height: 504px;
+    min-height: 469px;
     background: #212121;
 }
 .search_imagetitle {
     text-align: center;
+}
+.search__imagewrapper {
+    overflow: hidden;
 }
