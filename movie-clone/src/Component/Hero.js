@@ -40,6 +40,7 @@ const ReleaseDate = ({ release }) => {
 
 
 const Hero = ({ feature }) => {
+    console.log(feature);
     return  <motion.div variants={heroVariant} initial="start"  animate="show" exit={{ opacity: 0 }} className="main__hero" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original/${feature.backdrop_path})`, }}>
                 <div className="main__content">
                     <div className="main__container--hidden">

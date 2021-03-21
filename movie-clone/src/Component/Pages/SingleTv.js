@@ -23,7 +23,6 @@ const SingleTv = () => {
             console.log(err);
         })
     }, [id]);
-
     return  <div className="singletv">
                 <Hero feature={show} />
                 <Links item={show} />

@@ -6,7 +6,6 @@ import MovieList from './MovieList';
 import TVList from './TVList';
 
 const Information = ({ item, media }) => {
-    console.log(item);
     return  <div className="information">
                 <div className="information__image">
                     <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} />
