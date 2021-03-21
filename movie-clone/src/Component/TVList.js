@@ -4,8 +4,8 @@ import RunTime from './RunTime';
 
 const List = ({ list }) => {
     return  <ul>
-                { list.map((item) => {
-                    return <li style={{ textAlign: 'end', display: 'inline-block' }} key={item.id}>{item.name}</li>
+                { list.map((item, id) => {
+                    return <li style={{ textAlign: 'end', display: 'inline-block' }} key={id}>{item.name }</li>
                 }) }
             </ul>
 }
@@ -15,7 +15,7 @@ const TVList = ({ details }) => {
     return  <div className="information__tvlist">
                 <ul>
                     <li>
-                        <span>Creators</span><span>{ details.created_by && <List list={details.created_by} /> }</span>
+                        <span>Creators</span><span>{ details.created_by ? <List list={details.created_by} /> : '--' }</span>
                     </li>
                     <li>
                         <span>Run Time</span><span>{ details.episode_run_time && <RunTime runtime={details.episode_run_time} />}</span>
@@ -51,7 +51,7 @@ const TVList = ({ details }) => {
                         <span>Status</span><span>{details.status}</span>
                     </li>
                     <li>
-                        <span>Tagline</span><span>{details.tagline}</span>
+                        <span>Tagline</span><span>{details.tagline ? details.tagline : '-'}</span>
                     </li>
                     <li>
                         <span>Type</span><span>{details.type}</span>

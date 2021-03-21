@@ -5,7 +5,7 @@
   max-height: 100%;
 }
 .main__hero {
-  background: #00000073;
+  background: #33333385;
   background-image: url("https://www.10wallpaper.com/wallpaper/1366x768/1712/Star_Wars_The_Last_Jedi_2017_Movies_4K_1366x768.jpg");
   background-repeat: no-repeat;
   background-position: left top;
@@ -87,7 +87,7 @@
 .main__contentnetwork {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   grid-gap: 1em;
   gap: 1em;
   list-style: none;
