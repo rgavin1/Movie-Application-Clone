@@ -2,4 +2,50 @@
     flex: .9 1;
     overflow: scroll;
     max-height: 100vh;
+    padding: 30px;
+}
+.search__queryform {
+    position: relative;
+    margin-bottom: 30px;
+}
+.search__input {
+    color: #fff;
+    background: #171717;
+    width: 100%;
+    border: none;
+    padding: 15px 0;
+    text-indent: 30px;
+    font-size: 20px;
+    outline: none;
+    border-radius: 100px;
+}
+.search__icon {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+}
+.search__icon svg {
+    color: #949494;
+}
+.search_results {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: flex-start;
+}
+.search_resultsitem {
+    flex: .4;
+    min-width: 300px;
+    max-width: 323.84px;
+}
+.search_image {
+    width: 100%;
+    min-width: 100%;
+    min-height: 504px;
+    background: #212121;
+}
+.search_imagetitle {
+    text-align: center;
 }
