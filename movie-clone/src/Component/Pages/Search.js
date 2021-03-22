@@ -38,28 +38,27 @@ const ItemsList = ({ list }) => {
 const Search = () => {
     const [ input, setInput ] = useState('');
     const [ list, setList ] = useState([]);
-    const [ search, setSearch ] = useState(false);
+    // const [ search, setSearch ] = useState(false);
 
 
     useEffect(() => {
+        const fetchQuery = (query) => {
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB}&language=en-US&query=${query}&include_adult=false`)
+            .then(res => res.json())
+            .then((items) => {
+                setList(items.results);
+                // setSearch(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
         fetchQuery(input);
-    }, [search])
-
-    function fetchQuery(query){
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB}&language=en-US&query=${query}&include_adult=false`)
-        .then(res => res.json())
-        .then((items) => {
-            setList(items.results);
-            setSearch(false);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
+    }, [input])
 
     function handleChange(e){
         setInput(e.currentTarget.value);
-        setSearch(true);
+        // setSearch(true);
     }
 
     return  <div className="search">

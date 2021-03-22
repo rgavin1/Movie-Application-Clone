@@ -4,6 +4,7 @@ import React from 'react';
 import Genre from './Genre';
 import Rating from './Rating';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Parent Animation
 const heroVariant = {
@@ -54,7 +55,9 @@ const Hero = ({ feature }) => {
                         { feature.networks && <Network networks={feature.networks} /> }
                     </div>
                     <div className="main__container--hidden">
-                        <motion.h1 variants={childVariant} className="main__contenttitle">{feature.title ? feature.title : feature.name }</motion.h1>
+                        <Link to={`/${feature.media_type}-profile/${feature.id}`}>
+                            <motion.h1 variants={childVariant} className="main__contenttitle">{feature.title ? feature.title : feature.name }</motion.h1>
+                        </Link>
                     </div>
                     <div className="main__container--hidden">
                         <motion.div variants={childVariant} className="main__contentmeta">

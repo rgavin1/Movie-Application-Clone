@@ -15,6 +15,11 @@
   padding: 400px 40px 100px;
   position: relative;
 }
+.main__hero a {
+  color: #fff;
+  text-decoration: none;
+  display: table;
+}
 .main__content {
   max-width: 950px;
 }
@@ -115,7 +120,8 @@ filter: invert(1);
   cursor: pointer;
 }
 .slick-slide a {
-  text-decoration: underline;
+  text-decoration: none;
+  cursor: pointer;
 }
 .slick-slide:hover img {
   transform: scale(1.06);

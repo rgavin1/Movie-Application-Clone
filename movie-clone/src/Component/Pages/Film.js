@@ -13,45 +13,46 @@ const Film = () => {
     const [upcomingMovies, setUpcomingMovies ] = useState([]);
     
     useEffect(() => {
+        const fetchPopMovies = () => {
+            fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB}`)
+            .then(res => res.json())
+            .then((items) => {
+                const random_num = Math.floor(Math.random() * 19);
+                    setFeature(items.results[random_num]);
+                    setMovies(items.results);
+                    fetchNowPlayingMovies();
+                    fetchUpcomingMovies();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+    
+        const fetchNowPlayingMovies = () => {
+            fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
+            .then(res => res.json())
+            .then((items) => {
+                setNowPlaying(items.results);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
+    
+        const fetchUpcomingMovies = () => {
+            fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
+            .then(res => res.json())
+            .then((items) => {
+                setUpcomingMovies(items.results);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        }
         fetchPopMovies();
     }, []);
     
-    function fetchPopMovies(){
-        fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB}`)
-        .then(res => res.json())
-        .then((items) => {
-            const random_num = Math.floor(Math.random() * 19);
-                setFeature(items.results[random_num]);
-                setMovies(items.results);
-                fetchNowPlayingMovies();
-                fetchUpcomingMovies();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
 
-    function fetchNowPlayingMovies(){
-        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
-        .then(res => res.json())
-        .then((items) => {
-            setNowPlaying(items.results);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
-
-    function fetchUpcomingMovies(){
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB}&language=en-US&page=1`)
-        .then(res => res.json())
-        .then((items) => {
-            setUpcomingMovies(items.results);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    }
 
     return  <div className="film">
                 <Hero feature={feature} />
