@@ -43,7 +43,7 @@ const Search = () => {
 
     useEffect(() => {
         const fetchQuery = (query) => {
-            fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB}&language=en-US&query=${query}&include_adult=false`)
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${query}&include_adult=false`)
             .then(res => res.json())
             .then((items) => {
                 setList(items.results);

@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-      fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB}`)
+      fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
       .then(res => res.json())
       .then((items) => {
         const random_num = Math.floor(Math.random() * 19);

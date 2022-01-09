@@ -14,7 +14,7 @@ const SingleFlim = () => {
     useEffect(() => {
         window.scrollTo(0, 0);     
         const fetchShow = () => {
-            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB}&language=en-US`)
+            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
             .then(res => res.json())
             .then((items) => {
                 setShow(items);

@@ -34,10 +34,7 @@ const childVariant = {
     }
 }
 
-const ReleaseDate = ({ release }) => {
-    const year = release.split("-");
-    return year[0];
-}
+const ReleaseDate = ({ release }) => release.split("-")[0];
 
 const Network = ({ networks }) => {
     return  <motion.ul variants={childVariant} className="main__contentnetwork ">
