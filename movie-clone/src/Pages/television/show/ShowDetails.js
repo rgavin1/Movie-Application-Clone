@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Components
-import Hero from '../layout/Hero';
-import Information from '../component/Information';
-import Links from '../component/Links';
+import Hero from '../../../layout/Hero';
+import Information from '../../../component/Information';
+import Links from '../../../component/Links';
 // Styles
-import '../assets/styles/Pages/SingleTv.css';
+import '../../../assets/styles/Pages/SingleTv.css';
 
 require('dotenv').config();
 
-const SingleTv = () => {
+const ShowDetails = () => {
     const { id } = useParams();
     const [ show, setShow ] = useState({});
 
@@ -39,4 +39,4 @@ const SingleTv = () => {
             </div>
 }
 
-export default SingleTv;
+export default ShowDetails;
