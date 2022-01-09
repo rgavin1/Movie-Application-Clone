@@ -1,24 +1,16 @@
-import './App.css';
+import { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Main from './pages/home/Container';
 import { SideBar } from './layouts';
+
+import './App.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import routes from "./utils/routes";
 
-import Main from './pages/home/Container';
-// import Searchpage from './pages/search/Container';
-// import Tvpage from './pages/shows/Container';
-// import Moviespage from './pages/movies/Container';
-// Single Pages
-// import SingleTv from './pages/shows/program/Container';
-// import SingleFilm from './pages/movies/film/Container';
-// Import css files
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Component } from 'react';
-
 require('dotenv').config();
-
 
 class App extends Component {
   constructor(props){
