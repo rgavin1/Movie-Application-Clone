@@ -1,6 +1,6 @@
 import './App.css';
 import Sidebar from './Component/Sidebar';
-import Main from './Component/Main';
+import Main from './layout/Main';
 import Searchpage from './Pages/Search';
 import Tvpage from './Pages/Tv';
 import Moviespage from './Pages/Film';
