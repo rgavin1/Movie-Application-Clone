@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Components
-import Hero from '../../../layout/Hero';
-import Information from '../../../component/Information';
-import Links from '../../../component/Links';
+import Hero from '../../../layouts/main/Container';
+import Information from '../../../components/Information';
+import Links from '../../../components/Links';
 // Styles
 import '../../../assets/styles/Pages/SingleTv.css';
 

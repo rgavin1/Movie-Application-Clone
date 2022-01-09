@@ -1,6 +1,6 @@
 import React from 'react';
-import Networks from './Networks';
-import RunTime from './RunTime';
+import Networks from '../../../components/Networks';
+import RunTime from '../../../components/RunTime';
 
 const List = ({ list }) => {
     return  <ul>

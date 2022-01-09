@@ -1,8 +1,8 @@
 import React, { useState, useEffect }  from 'react';
 import '../../assets/styles/Pages/Film.css';
-import Hero from '../../layout/Hero';
-import ImageSlider from '../../component/ImageSlider';
-import Footer from '../../layout/Footer';
+import Hero from '../../layouts/main/Container';
+import ImageSlider from '../../components/ImageSlider';
+import Footer from '../../layouts/footer/Container';
 
 require('dotenv').config();
 

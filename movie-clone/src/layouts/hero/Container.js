@@ -1,8 +1,8 @@
 import React from 'react';
 // import { faPlayCircle } from '@fortawesome/free-regular-svg-icons'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Genre from '../component/Genre';
-import Rating from '../component/Rating';
+import Genre from '../../components/Genre';
+import Rating from '../../components/Rating';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 

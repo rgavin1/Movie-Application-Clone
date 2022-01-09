@@ -3,8 +3,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import '../assets/styles/Information.css';
 
-import MovieList from './MovieList';
-import TVList from './TVList';
+import MovieList from '../pages/movies/film/FilmDetails';
+import TVList from '../pages/shows/program/ProgramDetails';
 
 const Information = ({ item, media }) => {
     return  <div className="information">

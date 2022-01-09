@@ -1,39 +1,51 @@
-import React ,{ useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-// Styles
-import '../../../assets/styles/Pages//SingleFilm.css';
-// Components
-import Hero from '../../../layout/Hero'; 
-import Links from '../../../component/Links';
-import Information from '../../../component/Information';
+import React from 'react';
 
-const SingleFlim = () => {
-    const { id } = useParams();
-    const [ show, setShow ] = useState({});
+const List = ({ list }) => {
+    return  <ul>
+                { list.map((item, id) => {
+                    return <li style={{ textAlign: 'end', display: 'inline-block' }} key={id}>{item.name }</li>
+                }) }
+            </ul>
+}
 
-    useEffect(() => {
-        window.scrollTo(0, 0);     
-        const fetchShow = () => {
-            fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
-            .then(res => res.json())
-            .then((items) => {
-                setShow(items);
-                // fetchCast();
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-        }
-        fetchShow();
-    }, [id]);
-
-    
-    return  <div className="singleFlim">
-                <Hero feature={show} />
-                <Links item={show} />
-                <Information item={show} media="movie"/>
-                {/* <CastSlider text="Cast" cast={cast} /> */}
+const MovieList = ({ details }) => {
+    return  <div className="information__tvlist">
+                <ul>
+                    <li>
+                        <span>Belongs To Collection</span><span>{ details.belongs_to_collection ? details.belongs_to_collection : '-' }</span>
+                    </li>
+                    <li>
+                        <span>Budget</span><span>${ details.budget ? details.budget : "-"}</span>
+                    </li>
+                    <li>
+                        <span>Genres</span><span>{ details.genres && <List list={details.genres} />}</span>
+                    </li>
+                    <li>
+                        <span>Languages</span><span>{ details.spoken_languages && <List list={details.spoken_languages} />}</span>
+                    </li>
+                    <li>
+                        <span>Production Companies</span><span>{ details.production_companies &&  <List list={details.production_companies} /> }</span>
+                    </li>
+                    <li>
+                        <span>Production Countries</span><span>{ details.production_countries &&  <List list={details.production_countries} /> }</span>
+                    </li>
+                    <li>
+                        <span>Status</span><span>{details.status}</span>
+                    </li>
+                    <li>
+                        <span>Tagline</span><span>{details.tagline ? details.tagline : '-'}</span>
+                    </li>
+                    <li>
+                        <span>Runtime</span><span>{details.runtime ? details.runtime+' mins' : '-' }</span>
+                    </li>
+                    <li>
+                        <span>Vote Avg</span><span>{details.vote_average}</span>
+                    </li>
+                    <li>
+                        <span>Vote Count</span><span>{details.vote_count}</span>
+                    </li>
+                </ul>
             </div>
 }
 
-export default SingleFlim;
+export default MovieList;
