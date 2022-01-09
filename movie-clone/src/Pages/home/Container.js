@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/styles/Main.css';
-import Hero from './Container';
-import Footer from '../../layouts/footer/Container';
+
+import { Hero, Footer } from '../../layouts'
 import ImageSlider from '../../components/ImageSlider';
 
 const Main = ({ feature, trending }) => {

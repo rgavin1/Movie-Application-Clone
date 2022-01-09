@@ -1,16 +1,24 @@
-import { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
 import './App.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import { SideBar } from './layouts';
-import Main from './pages/home/Container';
 
 import routes from "./utils/routes";
 
+import Main from './pages/home/Container';
+// import Searchpage from './pages/search/Container';
+// import Tvpage from './pages/shows/Container';
+// import Moviespage from './pages/movies/Container';
+// Single Pages
+// import SingleTv from './pages/shows/program/Container';
+// import SingleFilm from './pages/movies/film/Container';
+// Import css files
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Component } from 'react';
+
 require('dotenv').config();
+
 
 class App extends Component {
   constructor(props){
@@ -48,11 +56,14 @@ class App extends Component {
       <div className="app">
           <SideBar />
           <Switch>
-              <Route exact path="/"> 
+            {/* FIXME: Add with the rest of routes */}
+              <Route exact path="/app"> 
                 <Main feature={this.state.feature} trending={this.state.trending_all} />
             </Route>
             {
-              routes.map((route, index) => <Route key={index} path={route.pathname} component={route.component} exact={route.exact} />)
+              routes.map((route, index) => {
+                return <Route key={index} path={route.pathname} component={route.component} /> 
+              })
             }
           </Switch>
       </div>  
