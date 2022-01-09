@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Pages/Tv.css';
-import Hero from '../../layouts/main/Container';
+import Hero from '../home/Container';
 import ImageSlider from '../../components/ImageSlider';
 import Footer from '../../layouts/footer/Container';
  

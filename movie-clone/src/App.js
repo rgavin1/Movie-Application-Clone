@@ -1,20 +1,16 @@
+import { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './App.css';
-import Sidebar from './layouts/sidebar/Container';
-import Main from './layouts/main/Container';
-import Searchpage from './pages/search/Container';
-import Tvpage from './pages/shows/Container';
-import Moviespage from './pages/movies/Container';
-// Single Pages
-import SingleTv from './pages/shows/program/Container';
-import SingleFilm from './pages/movies/film/Container';
-// Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Component } from 'react';
+
+import { SideBar } from './layouts';
+import Main from './pages/home/Container';
+
+import routes from "./utils/routes";
 
 require('dotenv').config();
-
 
 class App extends Component {
   constructor(props){
@@ -50,16 +46,14 @@ class App extends Component {
     return (
       <Router>
       <div className="app">
-          <Sidebar />
+          <SideBar />
           <Switch>
               <Route exact path="/"> 
                 <Main feature={this.state.feature} trending={this.state.trending_all} />
-              </Route>
-              <Route path="/search" component={Searchpage} /> 
-              <Route path="/tv" component={Tvpage} /> 
-              <Route path="/movie" component={Moviespage} />
-              <Route path="/tv-profile/:id" component={SingleTv} /> 
-              <Route path="/movie-profile/:id" component={SingleFilm} /> 
+            </Route>
+            {
+              routes.map((route, index) => <Route key={index} path={route.pathname} component={route.component} exact={route.exact} />)
+            }
           </Switch>
       </div>  
       </Router>

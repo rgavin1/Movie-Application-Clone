@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/styles/Sidebar.css';
-import Menu from '../menu/Container';
+import Menu from '../navigation/Container';
 import Profile from '../../pages/profile/Container';
 import { motion } from 'framer-motion';
 

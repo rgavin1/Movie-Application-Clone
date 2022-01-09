@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Components
-import Hero from '../../../layouts/main/Container';
+import Hero from '../../home/Container';
 import Information from '../../../components/Information';
 import Links from '../../../components/Links';
 // Styles
