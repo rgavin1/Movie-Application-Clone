@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Components
-import Hero from '../Hero';
-import Information from '../Information';
-import Links from '../Links';
+import Hero from '../Component/Hero';
+import Information from '../Component/Information';
+import Links from '../Component/Links';
 // Styles
-import '../../Assets/styles/Pages/SingleTv.css';
+import '../Assets/styles/Pages/SingleTv.css';
 
 require('dotenv').config();
 

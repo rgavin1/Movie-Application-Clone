@@ -1,11 +1,11 @@
 import React ,{ useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Styles
-import '../../Assets/styles/Pages/SingleFilm.css';
+import '../Assets/styles/Pages/SingleFilm.css';
 // Components
-import Hero from '../Hero'; 
-import Links from '../Links';
-import Information from '../Information';
+import Hero from '../Component/Hero'; 
+import Links from '../Component/Links';
+import Information from '../Component/Information';
 
 const SingleFlim = () => {
     const { id } = useParams();
