@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../../Assets/styles/Pages/Tv.css';
+import '../../assets/styles/Pages/Tv.css';
 import Hero from '../../layout/Hero';
-import ImageSlider from '../../Component/ImageSlider';
+import ImageSlider from '../../component/ImageSlider';
 import Footer from '../../layout/Footer';
  
 require('dotenv').config();

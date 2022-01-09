@@ -1,12 +1,12 @@
 import './App.css';
 import Sidebar from './layout/Sidebar';
 import Main from './layout/Main';
-import Searchpage from './Pages/Search/Container';
-import Tvpage from './Pages/Shows/Container';
-import Moviespage from './Pages/Movies/Container';
+import Searchpage from './pages/search/Container';
+import Tvpage from './pages/shows/Container';
+import Moviespage from './pages/movies/Container';
 // Single Pages
-import SingleTv from './Pages/SingleTv';
-import SingleFilm from './Pages/Movies/SingleFilm';
+import SingleTv from './pages/SingleTv';
+import SingleFilm from './pages/movies/SingleFilm';
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

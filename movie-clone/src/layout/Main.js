@@ -1,8 +1,8 @@
 import React from 'react';
-import '../Assets/styles/Main.css';
+import '../assets/styles/Main.css';
 import Hero from './Hero';
 import Footer from './Footer';
-import ImageSlider from '../Component/ImageSlider';
+import ImageSlider from '../component/ImageSlider';
 
 const Main = ({ feature, trending }) => {
     return  <div className="main">

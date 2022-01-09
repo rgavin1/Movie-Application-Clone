@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../Assets/data/genres.json';
+import List from '../assets/data/genres.json';
 
 const Genre = ({ genres }) => {
     return  <div className="main__genre">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../Assets/styles/Pages/Search.css';
+import '../../assets/styles/Pages/Search.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';

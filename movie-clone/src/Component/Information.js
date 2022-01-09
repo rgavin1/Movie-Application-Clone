@@ -1,7 +1,8 @@
 import React from 'react';
-import '.././Assets/styles/Information.css'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-// Components
+
+import '../assets/styles/Information.css';
+
 import MovieList from './MovieList';
 import TVList from './TVList';
 

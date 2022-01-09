@@ -1,7 +1,7 @@
 import React from 'react';
-import '../Assets/styles/Sidebar.css';
+import '../assets/styles/Sidebar.css';
 import Menu from './Menu/Menu';
-import Profile from '../Component/Profile';
+import Profile from '../component/Profile';
 import { motion } from 'framer-motion';
 
 const Sidebar = () => {
