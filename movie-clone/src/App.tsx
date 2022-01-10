@@ -15,12 +15,12 @@ require('dotenv').config();
 const App: React.FC = () => {
   const [feature, setFeature] = useState({});
   const [trending, setTrending] = useState([]);
-  const [searching, setSearching] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState();
 
   useEffect(() => {
     (async () => {
-      setSearching(false);
+      setIsSearching(false);
 
       try {
         const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
@@ -32,7 +32,7 @@ const App: React.FC = () => {
       } catch (e: any) {
         setError(e);
       } finally {
-        setSearching(true)
+        setIsSearching(true)
       }
     })()
 
