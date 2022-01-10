@@ -11,99 +11,32 @@ import "slick-carousel/slick/slick-theme.css";
 import routes from "./utils/routes";
 
 require('dotenv').config();
-// class App extends Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       feature: {},
-//       trending_all: [],
-//       searching: false
-//     }
-//   }
 
-//   componentDidMount() {
-//       fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
-//       .then(res => res.json())
-//       .then((items) => {
-//         const random_num = Math.floor(Math.random() * 19);
-//         this.setState({
-//           feature: items.results[random_num],
-//           trending_all: items.results,
-//           searching: false
-//         },
-//         (error) => {
-//           this.setState({
-//             searching: true,
-//             error
-//           });
-//         } 
-//         )
-//       });
-//   }
-//   render(){
-    
-//     return (
-//       <Router>
-//       <div className="app">
-//           <SideBar />
-//           <Switch>
-//             {/* FIXME: Add with the rest of routes */}
-//               <Route exact path="/app"> 
-//                 <Main feature={this.state.feature} trending={this.state.trending_all} />
-//             </Route>
-//             {
-//               routes.map((route, index) => {
-//                 return <Route key={index} path={route.pathname} component={route.component} /> 
-//               })
-//             }
-//           </Switch>
-//       </div>  
-//       </Router>
-//     );
-//   }
-// }
+const App = () => {
+  const [feature, setFeature] = useState({});
+  const [trending, setTrending] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [error, setError] = useState();
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      feature: {},
-      trending_all: [],
-      searching: false
-    }
-  }
-
-  componentDidMount() {
-
+  useEffect(() => {
     (async () => {
+      setSearching(false);
 
       try {
         const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
-
         const items = await response.json();
        
-        const random_num = Math.floor(Math.random() * 19);
-        this.setState({
-          feature: items.results[random_num],
-          trending_all: items.results,
-          searching: false
-        });
-          
+        const random_num = Math.floor(Math.random() * 19);        
+        setFeature(items.results[random_num]);
+        setTrending(items.results);
       } catch (e) {
-        
-        this.setState({
-            e
-        });
-        
-      } finally {
-                
-        this.setState({
-            searching: true,
-        });
+        setError(e);
+      } finally {  
+        setSearching(true)
       }
-          })()
-  }
-  render(){
+    })()
+
+  }, []);
     
     return (
       <Router>
@@ -112,7 +45,7 @@ class App extends Component {
           <Switch>
             {/* FIXME: Add with the rest of routes */}
               <Route exact path="/app"> 
-                <Main feature={this.state.feature} trending={this.state.trending_all} />
+                <Main feature={feature} trending={trending} />
             </Route>
             {
               routes.map((route, index) => {
@@ -123,7 +56,6 @@ class App extends Component {
       </div>  
       </Router>
     );
-  }
 }
 
 export default App;
