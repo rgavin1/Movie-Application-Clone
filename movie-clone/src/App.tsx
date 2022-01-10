@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import routes from "./utils/routes";
-import { feature as feat } from "./services";
+import feat from "./services/feature";
 import { feature } from "./utils/types";
 
 const App: React.FC = () => {
