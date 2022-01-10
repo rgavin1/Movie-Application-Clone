@@ -1,4 +1,4 @@
-import { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Main from './pages/home/Container';
@@ -12,7 +12,7 @@ import routes from "./utils/routes";
 
 require('dotenv').config();
 
-const App = () => {
+const App: React.FC = () => {
   const [feature, setFeature] = useState({});
   const [trending, setTrending] = useState([]);
   const [searching, setSearching] = useState(false);
@@ -25,37 +25,37 @@ const App = () => {
       try {
         const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
         const items = await response.json();
-       
-        const random_num = Math.floor(Math.random() * 19);        
+
+        const random_num = Math.floor(Math.random() * 19);
         setFeature(items.results[random_num]);
         setTrending(items.results);
-      } catch (e) {
+      } catch (e: any) {
         setError(e);
-      } finally {  
+      } finally {
         setSearching(true)
       }
     })()
 
   }, []);
-    
-    return (
-      <Router>
+
+  return (
+    <Router>
       <div className="app">
-          <SideBar />
-          <Switch>
-            {/* FIXME: Add with the rest of routes */}
-              <Route exact path="/app"> 
-                <Main feature={feature} trending={trending} />
-            </Route>
-            {
-              routes.map((route, index) => {
-                return <Route key={index} path={route.pathname} component={route.component} /> 
-              })
-            }
-          </Switch>
-      </div>  
-      </Router>
-    );
+        <SideBar />
+        <Switch>
+          {/* FIXME: Add with the rest of routes */}
+          <Route exact path="/app">
+            <Main feature={feature} trending={trending} />
+          </Route>
+          {
+            routes.map((route, index) => {
+              return <Route key={index} path={route.pathname} component={route.component} />
+            })
+          }
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
