@@ -10,12 +10,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 import routes from "./utils/routes";
 import { feature as feat } from "./services";
-
-require('dotenv').config();
+import { feature } from "./utils/types";
 
 const App: React.FC = () => {
-  const [feature, setFeature] = useState({});
-  const [trending, setTrending] = useState([]);
+  const [feature, setFeature] = useState<feature | {}>({});
+  const [trending, setTrending] = useState<feature[] | []>([]);
   const [isSearching, setIsSearching] = useState(false);
   const [error, setError] = useState();
 
