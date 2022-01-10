@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import routes from "./utils/routes";
+import { feature as feat } from "./services";
 
 require('dotenv').config();
 
@@ -23,12 +24,11 @@ const App: React.FC = () => {
       setIsSearching(false);
 
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`);
-        const items = await response.json();
+        const trend = await feat.getTrending();
+        const ft = await feat.getFeature();
 
-        const random_num = Math.floor(Math.random() * 19);
-        setFeature(items.results[random_num]);
-        setTrending(items.results);
+        setFeature(ft);
+        setTrending(trend);
       } catch (e: any) {
         setError(e);
       } finally {
