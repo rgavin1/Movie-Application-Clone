@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // import Main from './pages/home/Container';
 import { SideBar } from './layouts';
 
 import './App.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import routes from "./utils/routes";
 import feat from "./services/feature";
@@ -41,17 +41,17 @@ const App: React.FC = () => {
     <Router>
       <div className="app">
         <SideBar />
-        <Switch>
+        <Routes>
           {/* FIXME: Add with the rest of routes */}
-          <Route exact path="/app">
+          <Route path="/app">
             {/* <Main feature={feature} trending={trending} /> */}
           </Route>
           {
-            routes.map((route, index) => {
-              return <Route key={index} path={route.pathname} component={route.component} />
+            routes.map((route: any, index) => {
+              return <Route key={index} path={route.pathname} element={route.component} />
             })
           }
-        </Switch>
+        </Routes>
       </div>
     </Router>
   );

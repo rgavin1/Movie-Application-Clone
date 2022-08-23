@@ -5,8 +5,9 @@ import Hero from '../../home/Container';
 import Information from '../../../../../client/src/components/Information';
 import Links from '../../../../../client/src/components/Links';
 // Styles
-// import '../../../assets/styles/Pages/SingleTv.css';
+import '../../../assets/styles/Pages/SingleTv.css';
 
+;
 
 const ShowDetails = () => {
     const { id } = useParams();

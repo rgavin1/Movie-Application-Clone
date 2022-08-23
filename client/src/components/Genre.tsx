@@ -1,7 +1,7 @@
 import React from 'react';
 // import List from '../assets/data/genres.json';
 
-const Genre = ({ genres }) => {
+const Genre: React.FC<{ genres: any }> = ({ genres }) => {
     return  <div className="main__genre">
                 {/* <ul className="main__genrelist">
                     { genres.map((termid, number) => {

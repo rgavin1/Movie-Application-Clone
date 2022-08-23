@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 // Styles
-import '../../../assets/styles/Pages//SingleFilm.css';
+// import '../../../assets/styles/Pages//SingleFilm.css';
 // Components
 import Hero from '../../home/Container';
-import Links from '../../../../../old-client/src/components/Links';
-import Information from '../../../../../old-client/src/components/Information';
+import Links from '../../../../../client/src/components/Links';
+import Information from '../../../../../client/src/components/Information';
 
 const SingleFlim = () => {
     const { id } = useParams();

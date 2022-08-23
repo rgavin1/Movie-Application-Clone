@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import '../../assets/styles/Pages/Tv.css';
+import '../../assets/styles/Pages/Tv.css';
 import Hero from '../home/Container';
 import ImageSlider from '../../../../client/src/components/ImageSlider';
 import Footer from '../../../../client/src/layouts/footer/Container';
@@ -71,7 +71,7 @@ const Tv = () => {
     return <div className="tv">
         <Hero feature={feature} trending={[]} />
         <div className="tv__trends">
-            <ImageSlider text="Trending" genre="tv" trending={popshows} override={undefined} />
+            <ImageSlider text="Trending" genre="tv" trending={popshows} />
             <ImageSlider text="Related" genre="tv" trending={relatedshows} override={true} />
             <ImageSlider text="Recommended" genre="tv" trending={recommendedShows} override={true} />
             <ImageSlider text="Top Rated" genre="tv" trending={topratedShows} override={true} />

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../../assets/styles/Pages/Search.css';
+// import '../../assets/styles/Pages/Search.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-require('dotenv').config();
 
-
-const GetImage = ({ item }) => {
+const GetImage: React.FC<{ item: any }> = ({ item }) => {
     return  <>
                 { item.poster_path 
                     ? <img className="search_image" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title}`}  />
@@ -16,7 +14,7 @@ const GetImage = ({ item }) => {
             </>
 
 }
-const Item = ({ item }) => {
+const Item: React.FC<{ item: any }> = ({ item }) => {
     return  <div>
                 <div className="search__imagewrapper">
                     <GetImage item={item} />
@@ -25,9 +23,9 @@ const Item = ({ item }) => {
             </div>
 }
 
-const ItemsList = ({ list }) => {
+const ItemsList: React.FC<{ list: any }> = ({ list }) => {
         return  <ul className="search_results">
-                    { list.map((item, id) => {
+            {list.map((item: any, id: any) => {
                         return  <li key={id} className="search_resultsitem">
                                     <Link to={`${item.media_type}-profile/${item.id}`} ><Item item={item} /></Link>
                                 </li>
@@ -35,14 +33,14 @@ const ItemsList = ({ list }) => {
                 </ul>
 }
 
-const Search = () => {
+const Search: React.FC = () => {
     const [ input, setInput ] = useState('');
     const [ list, setList ] = useState([]);
     // const [ search, setSearch ] = useState(false);
 
 
     useEffect(() => {
-        const fetchQuery = (query) => {
+        const fetchQuery = (query: string) => {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&query=${query}&include_adult=false`)
             .then(res => res.json())
             .then((items) => {
@@ -56,7 +54,7 @@ const Search = () => {
         fetchQuery(input);
     }, [input])
 
-    function handleChange(e){
+    function handleChange(e: any) {
         setInput(e.currentTarget.value);
         // setSearch(true);
     }

@@ -1,14 +1,14 @@
 import React from 'react';
 
-const List: React.FC<{ list: any }> = ({ list }) => {
+const List = ({ list }) => {
     return  <ul>
-        {list.map((item: any, id: number) => {
+                { list.map((item, id) => {
                     return <li style={{ textAlign: 'end', display: 'inline-block' }} key={id}>{item.name }</li>
                 }) }
             </ul>
 }
 
-const MovieList: React.FC<{ details: any }> = ({ details }) => {
+const MovieList = ({ details }) => {
     return  <div className="information__tvlist">
                 <ul>
                     <li>

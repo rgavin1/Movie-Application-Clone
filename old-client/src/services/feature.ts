@@ -1,6 +1,6 @@
 import { feature as featType } from '../utils/types'; 
 
-require('dotenv').config();
+;
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const GET_TRENDING_ALL_BY_WEEK = `https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`;

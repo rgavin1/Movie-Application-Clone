@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const ImageSlider = ({ text, genre, trending, override = false }) => {
+const ImageSlider: React.FC<{ text: any; genre: any; trending: any; override: any }> = ({ text, genre, trending, override = false }) => {
     var settings = {
         dots: false,
         infinite: true,
@@ -17,7 +17,7 @@ const ImageSlider = ({ text, genre, trending, override = false }) => {
         <div className="main__imagesliderTitle">{text}</div>
         <Slider {...settings}>
           {
-            trending.map((item, number) => {
+              trending.map((item: any, number: any) => {
               let poster;
               if(item.media_type === genre || override){
                 poster = <Link key={number} to={`/${genre}-profile/${item.id}`}>

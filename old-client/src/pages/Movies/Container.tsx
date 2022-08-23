@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import '../../assets/styles/Pages/Film.css';
+import '../../assets/styles/Pages/Film.css';
 import Hero from '../home/Container';
 import ImageSlider from '../../../../client/src/components/ImageSlider';
 import Footer from '../../../../client/src/layouts/footer/Container';
 
+;
 
 const Film = () => {
     const [feature, setFeature] = useState([]);
@@ -56,7 +57,7 @@ const Film = () => {
     return <div className="film">
         <Hero feature={feature} trending={[]} />
         <div className="film__trends">
-            <ImageSlider text="Trending Movies" genre="movie" trending={popMovies} override={undefined} />
+            <ImageSlider text="Trending Movies" genre="movie" trending={popMovies} />
             <ImageSlider text="Now Playing" genre="movie" trending={nowPlaying} override={true} />
             <ImageSlider text="Upcoming" genre="movie" trending={upcomingMovies} override={true} />
         </div>

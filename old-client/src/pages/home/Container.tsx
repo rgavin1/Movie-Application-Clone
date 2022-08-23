@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import '../../assets/styles/Main.css';
+import '../../assets/styles/Main.css';
 
 import { Hero, Footer } from '../../../../client/src/layouts'
 import ImageSlider from '../../../../client/src/components/ImageSlider';
@@ -15,8 +15,8 @@ const Main: React.FC<{
     return <div className="main">
         <Hero feature={feature} />
         <div className="main__trends">
-            <ImageSlider text="Trending Movies" genre="movie" trending={trending} override={undefined} />
-            <ImageSlider text="Trending Tv Shows" genre="tv" trending={trending} override={undefined} />
+            <ImageSlider text="Trending Movies" genre="movie" trending={trending} />
+            <ImageSlider text="Trending Tv Shows" genre="tv" trending={trending} />
         </div>
         <Footer />
     </div>
