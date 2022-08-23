@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "typescript": "^4.5.4"
+    "react-lazy-load-image-component": "^1.5.5",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "react-slick": "^0.29.0"
+  },
+  "devDependencies": {
+    "@types/react-lazy-load-image-component": "^1.5.2",
+    "@types/react-slick": "^0.23.10"
   }
 }
