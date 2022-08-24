@@ -1,15 +1,14 @@
 import React from 'react';
+import { FeatureGenre } from '../utils/helpers';
+import { Typography, Stack } from '@mui/material';
 // import List from '../assets/data/genres.json';
 
 const Genre: React.FC<{ genres: any }> = ({ genres }) => {
-    return  <div className="main__genre">
-                {/* <ul className="main__genrelist">
-                    { genres.map((termid, number) => {
-                        const term = List.genres.find((element) => element.id === termid);
-                        return <li key={number}>{term.name}</li>
-                    }) } 
-                </ul>*/}
-            </div>;
+    return <Stack direction="row">
+        {genres.map((termid: number, key: any) => {
+            return <Typography key={key} variant="body1" component="span" color="white" marginRight={1}>{FeatureGenre[termid]}</Typography>
+        })}
+    </Stack>;
 } 
 
 export default Genre;

@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 // Styles
 // import '../../../assets/styles/Pages//SingleFilm.css';
 // Components
-import Hero from '../../home/Container';
+import Hero from '../../home';
 import Links from '../../../../../client/src/components/Links';
 import Information from '../../../../../client/src/components/Information';
 

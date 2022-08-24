@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import '../../assets/styles/Pages/Film.css';
-import Hero from '../home/Container';
+import Hero from '../home';
 import ImageSlider from '../../../../client/src/components/ImageSlider';
 import Footer from '../../../../client/src/layouts/footer/Container';
 
