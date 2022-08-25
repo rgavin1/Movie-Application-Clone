@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import '../../assets/styles/Pages/Tv.css';
 import Hero from '../home';
 import ImageSlider from '../../../../client/src/components/ImageSlider';
-import Footer from '../../../../client/src/layouts/footer/Container';
+import { Footer } from '../../layouts';
 
-;
 
 const Tv = () => {
     const [feature, setFeature] = useState([]);

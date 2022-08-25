@@ -2,10 +2,10 @@ import React from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
-import { Program } from '../utils/types';
+import { Program, PersonRawResult } from '../utils/types';
 import '../assets/styles/ImageSlider.css';
 
-const ImageSlider: React.FC<{ text: string; programs: Program[] | undefined }> = ({ text, programs }) => {
+const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResult[] | undefined }> = ({ text, programs }) => {
   var settings = {
     arrows: true,
     dots: false,
@@ -20,11 +20,11 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | undefined }> =
       <Typography color="white" variant="h4" component="div" paddingY={3}>{text}</Typography>
       <Slider {...settings}>
           {
-          programs?.map((program: Program, key: number) =>
+          programs?.map((program: Program | PersonRawResult, key: number) =>
             <>
               {/* <Link key={number} to={`/${genre}-profile/${program.id}`}> */}
-              <img width="100%" src={`https://image.tmdb.org/t/p/w500${program.poster_path}`} alt={`${program.title} poster`} />
-              <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program.title ? program.title : program.name}</Typography>
+              <img width="100%" src={`https://image.tmdb.org/t/p/w500${program?.poster_path || program?.profile_path}`} alt={`${program?.title || program.name} poster`} />
+              <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
               {/* </Link> */}
             </>
           )
