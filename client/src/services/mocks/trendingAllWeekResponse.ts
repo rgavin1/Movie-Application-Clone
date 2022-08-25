@@ -1,6 +1,6 @@
-import { Payload, RawResponse } from "../types"
+import { Program, RawResponse } from "../../utils/types"
 
-export const payload: Payload[] = [
+export const payload: Program[] = [
     {
         adult: false,
         backdrop_path: "/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg",

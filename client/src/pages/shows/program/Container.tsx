@@ -29,7 +29,7 @@ const ShowDetails = () => {
     }, [id]);
 
     return <div className="singletv">
-        <Hero feature={show} trending={[]} />
+        <Hero />
         <Links item={show} />
         <Information item={show} media="tv" />
         {/* <CastSlider text="Cast" cast={cast} /> */}

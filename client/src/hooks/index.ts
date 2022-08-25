@@ -1,0 +1,5 @@
+export { default as useFeature } from './useFeature'
+export { default as useFetch } from './useFetch'
+export { default as useTrends } from './useTrends'
+export { default as useMovies } from './useMovies'
+export { default as useShows } from './useShows'

@@ -54,11 +54,11 @@ const Film = () => {
 
 
     return <div className="film">
-        <Hero feature={feature} trending={[]} />
+        <Hero />
         <div className="film__trends">
-            <ImageSlider text="Trending Movies" genre="movie" trending={popMovies} override={undefined} />
-            <ImageSlider text="Now Playing" genre="movie" trending={nowPlaying} override={true} />
-            <ImageSlider text="Upcoming" genre="movie" trending={upcomingMovies} override={true} />
+            <ImageSlider text="Trending Movies" programs={popMovies} />
+            <ImageSlider text="Now Playing" programs={nowPlaying} />
+            <ImageSlider text="Upcoming" programs={upcomingMovies} />
         </div>
         <Footer />
     </div>

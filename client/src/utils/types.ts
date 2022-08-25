@@ -1,5 +1,5 @@
 export type MediaType = "movie" | "tv";
-export type Languages = "en" | "pl"
+export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko"
 export type Country = "US"
 export type MovieGenre = "Action" | "Adventure" | "Animation" | "Comedy" | "Crime" | "Documentary" | "Drama" | "Family" | "Fantasy" | "History" | "Horror" | "Music" | "Mystery" | "Romance" | "Science Fiction" | "TV Movie" | "Thriller" | "War" | "Western"
 
@@ -20,7 +20,7 @@ export type TelevisionGenre = "Action & Adventure" |
     "War & Politics" |
     "Western"
 
-export type Payload = {
+export type Program = {
     adult: boolean;
     backdrop_path: string;
     genre_ids: number[];
@@ -44,7 +44,7 @@ export type Payload = {
 
 export type RawResponse = {
     page: number;
-    results: Payload[];
+    results: Program[];
     total_pages: number;
     total_results: number;
 }

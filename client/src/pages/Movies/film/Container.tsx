@@ -29,7 +29,7 @@ const SingleFlim = () => {
 
 
     return <div className="singleFlim">
-        <Hero feature={show} trending={[]} />
+        <Hero />
         <Links item={show} />
         <Information item={show} media="movie" />
         {/* <CastSlider text="Cast" cast={cast} /> */}

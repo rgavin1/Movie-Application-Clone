@@ -69,12 +69,12 @@ const Tv = () => {
             })
     }
     return <div className="tv">
-        <Hero feature={feature} trending={[]} />
+        <Hero />
         <div className="tv__trends">
-            <ImageSlider text="Trending" genre="tv" trending={popshows} override={undefined} />
-            <ImageSlider text="Related" genre="tv" trending={relatedshows} override={true} />
-            <ImageSlider text="Recommended" genre="tv" trending={recommendedShows} override={true} />
-            <ImageSlider text="Top Rated" genre="tv" trending={topratedShows} override={true} />
+            <ImageSlider text="Trending" programs={popshows} />
+            <ImageSlider text="Related" programs={relatedshows} />
+            <ImageSlider text="Recommended" programs={recommendedShows} />
+            <ImageSlider text="Top Rated" programs={topratedShows} />
         </div>
         <Footer />
     </div>
