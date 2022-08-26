@@ -1,5 +1,5 @@
 export type MediaType = "movie" | "tv" | "person";
-export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it"
+export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it" | "fr"
 export type Country = "US"
 export type MovieGenre = "Action" | "Adventure" | "Animation" | "Comedy" | "Crime" | "Documentary" | "Drama" | "Family" | "Fantasy" | "History" | "Horror" | "Music" | "Mystery" | "Romance" | "Science Fiction" | "TV Movie" | "Thriller" | "War" | "Western"
 
@@ -25,14 +25,14 @@ export type Program = {
     backdrop_path: string;
     genre_ids: number[];
     id: number;
-    media_type: MediaType;
     original_language: Languages;
-    original_title?: string;
     overview: string;
     popularity: number;
     poster_path: string;
     vote_average: number;
     vote_count: number;
+    original_title?: string;
+    media_type?: MediaType;
     release_date?: string;
     title?: string;
     video?: boolean;
@@ -44,6 +44,7 @@ export type Program = {
 }
 
 export type RawResponse = {
+    dates?: { maximum: string; minimum: string; };
     page: number;
     results: Program[];
     total_pages: number;

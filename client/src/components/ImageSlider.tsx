@@ -13,7 +13,7 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
     centerPadding: '15%',
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
   };
   return (
     <>
