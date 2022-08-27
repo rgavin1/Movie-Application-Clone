@@ -1,5 +1,5 @@
 export type MediaType = "movie" | "tv" | "person";
-export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it" | "fr"
+export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it" | "fr" | "hi"
 export type Country = "US"
 export type MovieGenre = "Action" | "Adventure" | "Animation" | "Comedy" | "Crime" | "Documentary" | "Drama" | "Family" | "Fantasy" | "History" | "Horror" | "Music" | "Mystery" | "Romance" | "Science Fiction" | "TV Movie" | "Thriller" | "War" | "Western"
 

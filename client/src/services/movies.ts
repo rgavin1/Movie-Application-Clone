@@ -2,6 +2,7 @@ import { RawResponse } from '../utils/types'
 import { trendingMoviesResponse } from './mocks/trendingMovies'
 import { NowPlaying } from './mocks/moviesNowPlaying'
 import { mockUpcomingMovies } from './mocks/mockUpcomingMovies'
+import { topRated } from './mocks/mockTopRatedMovies'
 
 const getTrendingMoviesForWeek = (): RawResponse => {
     return trendingMoviesResponse
@@ -20,6 +21,22 @@ const fetchPopularMovies = () => {
     //     .catch((err) => {
     //         console.log(err);
     //     })
+}
+
+const fetchTopRated = () => {
+    // fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+    //     .then(res => res.json())
+    //     .then((items) => {
+    //         const random_num = Math.floor(Math.random() * 19);
+    //         setFeature(items.results[random_num]);
+    //         setMovies(items.results);
+    //         fetchNowPlayingMovies();
+    //         fetchUpcomingMovies();
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
+    return topRated
 }
 
 const fetchNowPlaying = () => {
@@ -50,7 +67,8 @@ const movieServices = {
     getTrendingMoviesForWeek,
     fetchPopularMovies,
     fetchNowPlaying,
-    fetchUpcomingMovies
+    fetchUpcomingMovies,
+    fetchTopRated
 }
 
 export default movieServices
