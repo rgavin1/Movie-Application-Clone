@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 // Styles
 // import '../../../assets/styles/Pages//SingleFilm.css';
 // Components
-import Hero from '../../home';
+import { Hero } from '../../../layouts';
 import Links from '../../../../../client/src/components/Links';
 import Information from '../../../../../client/src/components/Information';
 
@@ -29,7 +29,7 @@ const SingleFlim = () => {
 
 
     return <div className="singleFlim">
-        <Hero />
+        <Hero mediaType="tv" />
         <Links item={show} />
         <Information item={show} media="movie" />
         {/* <CastSlider text="Cast" cast={cast} /> */}

@@ -12,7 +12,7 @@ const Film: React.FC = () => {
     const { data: topRated } = useMoviesTopRated();
 
     return <div id="movies-page">
-        <Hero />
+        <Hero mediaType="movie" />
         <Container>
             <ImageSlider text="Trending" programs={movies} />
             <ImageSlider text="Now Playing" programs={nowPlaying} />

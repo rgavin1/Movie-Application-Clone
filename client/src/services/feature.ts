@@ -1,5 +1,5 @@
 import { trendingAllWeekResponse } from './mocks/trendingAllWeekResponse';
-import { Program } from '../utils/types'; 
+import { MediaType, Program, RawResponse } from '../utils/types'; 
 
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -12,9 +12,10 @@ const getTrending = async (): Promise<Program[]> => {
     return data.results;
 }
 
-const getFeature = async (): Promise<Program> => {
-    const list = await getTrending();
-    return list[Math.floor(Math.random() * list.length)];
+const getFeature = (mediaType: Omit<MediaType, "person">): RawResponse => {
+    // const list = await getTrending();
+    // return list[Math.floor(Math.random() * list.length)];
+    return trendingAllWeekResponse
 }
 
 const featureService = {

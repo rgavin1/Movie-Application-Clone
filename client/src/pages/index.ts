@@ -2,7 +2,7 @@ export { default as HomePage } from "./home";
 export { default as MoviesPage } from "./movies/index";
 export { default as Profile } from "./profile/Container";
 export { default as Search } from "./search";
-export { default as Shows } from "./shows/Container";
+export { default as TelevisionShowsPage } from "./shows";
 
 
 export { default as Film } from "./movies/film/Container";

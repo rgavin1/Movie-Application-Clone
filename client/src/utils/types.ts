@@ -1,5 +1,5 @@
 export type MediaType = "movie" | "tv" | "person";
-export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it" | "fr" | "hi"
+export type Languages = "en" | "pl" | "ja" | "es" | "de" | "ko" | "it" | "fr" | "hi" | "cn" | "zh" | "pt" | "tr" | "tl" | "nl" | "ms"
 export type Country = "US"
 export type MovieGenre = "Action" | "Adventure" | "Animation" | "Comedy" | "Crime" | "Documentary" | "Drama" | "Family" | "Fantasy" | "History" | "Horror" | "Music" | "Mystery" | "Romance" | "Science Fiction" | "TV Movie" | "Thriller" | "War" | "Western"
 
@@ -21,8 +21,18 @@ export type TelevisionGenre = "Action & Adventure" |
     "Western"
 
 export type Program = {
-    adult: boolean;
-    backdrop_path: string;
+    adult?: boolean;
+    original_title?: string;
+    media_type?: MediaType | undefined;
+    release_date?: string;
+    title?: string;
+    video?: boolean;
+    first_air_date?: string;
+    name?: string;
+    original_name?: string;
+    origin_country?: string[];
+    profile_path?: string | null;
+    backdrop_path: string | null;
     genre_ids: number[];
     id: number;
     original_language: Languages;
@@ -31,16 +41,6 @@ export type Program = {
     poster_path: string;
     vote_average: number;
     vote_count: number;
-    original_title?: string;
-    media_type?: MediaType;
-    release_date?: string;
-    title?: string;
-    video?: boolean;
-    first_air_date?: string;
-    name?: string;
-    original_name?: string;
-    origin_country?: string[];
-    profile_path?: string | null
 }
 
 export type RawResponse = {
