@@ -6,4 +6,4 @@ export { default as TelevisionShowsPage } from "./shows";
 
 
 export { default as Film } from "./movies/film/Container";
-export { default as Program } from "./shows/program/Container";
+export { default as TelevisionShowDetails } from "./shows/program";
