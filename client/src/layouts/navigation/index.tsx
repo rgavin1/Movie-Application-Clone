@@ -9,7 +9,7 @@ const Menu = () => {
   return (
     <Drawer variant="permanent">
       <Container>
-      <Link to="/">
+        <Link to="home">
         <MenuItem text="home" icon={<FontAwesomeIcon icon={faHome} />} />
       </Link>
         <Link to="search">

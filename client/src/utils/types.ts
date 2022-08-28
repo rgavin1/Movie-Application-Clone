@@ -37,7 +37,7 @@ export type Program = {
     id: number;
     original_language: Languages;
     overview: string;
-    popularity: number;
+    popularity?: number;
     poster_path: string;
     vote_average: number;
     vote_count: number;
@@ -57,8 +57,8 @@ export type PersonRawResult = {
     name: string;
     original_name: string;
     media_type: MediaType;
-    popularity: number;
-    gender: number;
+    popularity?: number;
+    gender?: number;
     known_for_department: string;
     profile_path?: string | null;
     known_for: Program[];
