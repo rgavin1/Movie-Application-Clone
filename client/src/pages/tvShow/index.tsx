@@ -10,7 +10,7 @@ const Television: React.FC = () => {
     const { data: airingToday } = useAiringToday();
     const { data: onAir } = useFetchOnAir();
 
-    return <div className="television-page">
+    return <div className="tv-page">
         <Hero mediaType="tv" />
         <Container>
             <ImageSlider text="Trending" programs={trending} />

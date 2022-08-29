@@ -21,12 +21,10 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
       <Slider {...settings}>
           {
           programs?.map((program: Program | PersonRawResult, key: number) =>
-            <>
-              {/* <Link key={number} to={`/${genre}-profile/${program.id}`}> */}
+            <Link key={key} to={`/tv/${program.id}`}>
               <img width="100%" src={`https://image.tmdb.org/t/p/w500${program?.poster_path || program?.profile_path}`} alt={`${program?.title || program.name} poster`} />
               <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
-              {/* </Link> */}
-            </>
+            </Link>
           )
           }
       </Slider>

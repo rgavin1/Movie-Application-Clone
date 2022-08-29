@@ -1,26 +1,42 @@
 import React from 'react';
 import MenuItem from './MenuItem';
-import { faHome, faSearch, faTv, faFilm } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faSearch, faTv, faFilm, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { Container, Drawer } from '@mui/material';
 
-const Menu = () => {
+export type Route = {
+  path: string;
+  icon: IconDefinition
+}
+const routes: Route[] = [
+  {
+    path: "home",
+    icon: faHome
+  },
+  {
+    path: "search",
+    icon: faSearch
+  },
+  {
+    path: "tv",
+    icon: faTv
+  },
+  {
+    path: "movie",
+    icon: faFilm
+  }
+]
+
+const Menu: React.FC = () => {
   return (
     <Drawer variant="permanent">
       <Container>
-        <Link to="home">
-        <MenuItem text="home" icon={<FontAwesomeIcon icon={faHome} />} />
-      </Link>
-        <Link to="search">
-        <MenuItem text="search" icon={<FontAwesomeIcon icon={faSearch} />} />
-      </Link>
-        <Link to="shows">
-        <MenuItem text="tv" icon={<FontAwesomeIcon icon={faTv} />} />
-      </Link>
-      <Link to="movies">
-        <MenuItem text="movie" icon={<FontAwesomeIcon icon={faFilm} />} />
-        </Link>
+        {routes.map((route: Route, index: number) =>
+          <Link key={index} to={route.path}>
+            <MenuItem text={route.path} icon={<FontAwesomeIcon icon={route.icon} />} />
+          </Link>
+        )}
       </Container>
     </Drawer>
   );

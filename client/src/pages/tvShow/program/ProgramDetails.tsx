@@ -1,6 +1,6 @@
 import React from 'react';
-import Networks from '../../../../../client/src/components/Networks';
-import RunTime from '../../../../../client/src/components/RunTime';
+import Networks from '../../../components/Networks';
+import RunTime from '../../../components/RunTime';
 
 const List: React.FC<{ list: any[] }> = ({ list }) => {
     return <ul>

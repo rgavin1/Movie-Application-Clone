@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 import "./assets/styles/app.css";
 import { Footer, SideBar } from "./layouts";
 
-import { HomePage, MoviesPage, TelevisionShowsPage, SearchPage, TelevisionShowDetails, Film } from "./pages";
+import { HomePage, MoviesPage, TvShowsPage, SearchPage, TvShowDetailsPage } from "./pages";
 
 const App: React.FC = () => {
   return (
@@ -16,10 +16,9 @@ const App: React.FC = () => {
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
             <Route path="search" element={<SearchPage />} />
-            <Route path="shows" element={<TelevisionShowsPage />} />
-            <Route path="shows/show" element={<TelevisionShowDetails />} />
+            <Route path="tv" element={<TvShowsPage />} />
+            <Route path="/tv/:id" element={<TvShowDetailsPage />} />
             <Route path="movies" element={<MoviesPage />} />
-            <Route path="movies/movie" element={<Film />} />
             <Route path="home" element={<HomePage />} />
           </Routes>
           <Footer />

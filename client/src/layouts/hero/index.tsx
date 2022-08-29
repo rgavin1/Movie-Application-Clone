@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { Typography, Grid, Stack } from '@mui/material';
 import { useFeature } from '../../hooks';
-import { MediaType } from '../../utils/types';
+import { MediaType, Program } from '../../utils/types';
 
 // Parent Animation
 const heroVariant = {
@@ -52,9 +52,9 @@ const ReleaseDate: React.FC<{ release: any }> = ({ release }) => {
 // }
 
 
-const Hero: React.FC<{ mediaType: Omit<MediaType, "person"> }> = ({ mediaType }) => {
+const Hero: React.FC<{ mediaType: Omit<MediaType, "person">; program?: Program[] }> = ({ mediaType, program }) => {
   const { featureData: data } = useFeature(mediaType);
-  const featureData = data && data[0];
+  const featureData = (program && program[0]) || (data && data[0]);
   return (
     <motion.div
       variants={heroVariant}
