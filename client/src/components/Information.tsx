@@ -1,20 +1,22 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Grid } from "@mui/material";
 
 // import '../assets/styles/Information.css';
 
-// import MovieList from '../pages/movies/film/FilmDetails';
-// import TVList from '../pages/shows/program/ProgramDetails';
+import MovieList from '../pages/movies/film/FilmDetails';
+import ProgramDetails from '../pages/tvShow/program/ProgramDetails';
+
 
 const Information: React.FC<{ item: any; media: any }> = ({ item, media }) => {
-    return  <div className="information">
-                <div className="information__image">
-            {/* <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={`${item.title} poster`} /> */}
-                </div>
-                <div className="information__data">
-            {/* { media === "movie" ? <MovieList details={item} /> : <TVList details={item} /> } */}
-                </div>
-            </div>
+    return <Grid container id="information">
+        <Grid item xs={5}>
+            <LazyLoadImage effect="blur" src={`https://image.tmdb.org/t/p/w342${item.poster_path}`} alt={`${item.title} poster`} />
+        </Grid>
+        <Grid item xs={7}>
+            {media === "movie" ? <MovieList details={item} /> : <ProgramDetails details={item} />}
+        </Grid>
+    </Grid>
 }
 
 export default Information;

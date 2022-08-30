@@ -3,7 +3,7 @@ import { GetPopular } from './mocks/mockGetPopularTvShows'
 import { trendingShows } from './mocks/trendingShows'
 import { AiringToday } from './mocks/mockShowsAiringToday'
 import { OnAir } from './mocks/mockGetOnAir'
-import { mockGetShowById } from './mocks/mockGetShowById'
+import { mockGetShowDetailsById } from './mocks/mockGetShowById'
 
 const fetchTrendingShows = (): RawResponse => {
     return trendingShows
@@ -85,9 +85,8 @@ const fetchTopRatedShows = () => {
     //     })
 }
 
-const getShowById = (id?: string) => {
-    console.log('id: ', id);
-    return mockGetShowById;
+const getShowDetailsById = (id?: string) => {
+    return mockGetShowDetailsById;
 }
 
 const televisionServices = {
@@ -98,7 +97,7 @@ const televisionServices = {
     fetchAiringToday,
     fetchTopRatedShows,
     fetchOnAir,
-    getShowById
+    getShowDetailsById
 }
 
 export default televisionServices

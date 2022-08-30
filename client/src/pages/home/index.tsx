@@ -12,7 +12,7 @@ const Home: React.FC = () => {
     const { data: persons } = usePersons();
 
     return <div className="main">
-        <Hero mediaType="movie" />
+        <Hero mediaType="movie" searchedProgram={undefined} />
         <Container>
             <ImageSlider text="Trending Movies" programs={movies} />
             <ImageSlider text="Trending Tv Shows" programs={shows} />
