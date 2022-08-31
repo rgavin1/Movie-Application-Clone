@@ -15,11 +15,11 @@ const App: React.FC = () => {
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="tv" element={<TvShowsPage />} />
-            <Route path="/tv/:id" element={<TvShowDetailsPage />} />
+            <Route path="tv/:id" element={<TvShowDetailsPage />} />
             <Route path="movies" element={<MoviesPage />} />
-            <Route path="home" element={<HomePage />} />
           </Routes>
           <Footer />
         </Box>

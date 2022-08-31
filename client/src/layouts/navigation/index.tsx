@@ -11,7 +11,7 @@ export type Route = {
 }
 const routes: Route[] = [
   {
-    path: "home",
+    path: "/",
     icon: faHome
   },
   {

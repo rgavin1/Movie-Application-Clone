@@ -3,12 +3,18 @@ import { Container } from "@mui/material";
 import { useParams } from 'react-router';
 import Information from '../../../components/Information';
 import Links from '../../../components/Links';
+import { CastSlider } from '../../../components';
 import { Hero } from '../../../layouts';
 import televisionServices from '../../../services/television';
 import { ShowDetailsRawResponse } from '../../../utils/types';
+import { useCast, useTrendingShows } from '../../../hooks';
+import ImageSlider from '../../../components/ImageSlider';
 
 const ShowDetails: React.FC = () => {
     const { id } = useParams();
+    const { data: cast } = useCast();
+    const { data: trendingShows } = useTrendingShows();
+
     const [data, setData] = useState<ShowDetailsRawResponse>();
     const [isFetching, setIsFetching] = useState(false);
     const [error, setError] = useState();
@@ -32,9 +38,10 @@ const ShowDetails: React.FC = () => {
         <Container>
             <Links item={data} />
             <Information item={data} media="tv" />
-            {/* <CastSlider text="Cast" cast={cast} /> */}
-            {/* <ImageSlider text="Trending Movies" genre="tv" trending={trending} />
-                <ImageSlider text="Trending Tv Shows" genre="tv" trending={trending} /> */}
+            <CastSlider text="Series Cast" teamMembers={cast} />
+            <ImageSlider text="Trending Shows" programs={trendingShows} />
+            {/* TODO: ADD Recommendations Slider */}
+            {/*    <ImageSlider text="Trending Tv Shows" genre="tv" trending={trending} /> */}
         </Container>
     </div>
 }

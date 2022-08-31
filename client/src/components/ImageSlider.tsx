@@ -20,8 +20,8 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
       <Typography color="white" variant="h4" component="div" paddingY={3}>{text}</Typography>
       <Slider {...settings}>
           {
-          programs?.map((program: Program | PersonRawResult, key: number) =>
-            <Link key={key} to={`/tv/${program.id}`}>
+          programs?.map((program: Program | PersonRawResult, id: number) =>
+            <Link key={id} to={`/tv/${program.id}`}>
               <img width="100%" src={`https://image.tmdb.org/t/p/w500${program?.poster_path || program?.profile_path}`} alt={`${program?.title || program.name} poster`} />
               <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
             </Link>

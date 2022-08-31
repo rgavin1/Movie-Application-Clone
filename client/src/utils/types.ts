@@ -204,3 +204,24 @@ export type ShowDetailsRawResponse = {
     genre_ids?: number[];
     mediaType?: any;
 };
+
+export type Department = "Acting" | "Directing" | "Production" | "Writing" | "Art" | "Visual Effects" | "Costume \u0026 Make-Up" | "Sound"
+
+export type Cast = {
+    adult: boolean;
+    gender: number;
+    id: number;
+    known_for_department: Department;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    character: string;
+    credit_id: string;
+    order: number;
+}
+
+export type Job = "Visual Effects Supervisor" | "Executive Producer" | "Original Music Composer" | "Main Title Theme Composer" | "Novel" | "Visual Effects Producer" | "Co-Producer" | "Costume Design" | "Producer" | "Production Design" | "Co-Executive Producer" | "Concept Artist"
+export type Crew = Omit<Cast, "character" | "order"> & { department: Department; job: Job }
+
+export type CastRawResponse = { id: number; cast: Cast[]; crew: Crew[] }
