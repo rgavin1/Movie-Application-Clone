@@ -1,6 +1,10 @@
-import { RawResponse } from "../../utils/types";
+export type NowPlayingRawResponse = {
+    dates: { maximum: "2022-08-31", minimum: "2022-07-14" },
+    page: 1,
+    results: any[]
+}
 
-export const NowPlaying: RawResponse = {
+export const NowPlayingRawResponse = {
     dates: { maximum: "2022-08-31", minimum: "2022-07-14" },
     page: 1,
     results: [

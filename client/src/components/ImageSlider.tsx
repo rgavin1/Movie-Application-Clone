@@ -21,7 +21,7 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
       <Slider {...settings}>
           {
           programs?.map((program: Program | PersonRawResult, id: number) =>
-            <Link key={id} to={`/tv/${program.id}`}>
+            <Link key={id} to={`/${program?.media_type}/${program.id}`}>
               <img width="100%" src={`https://image.tmdb.org/t/p/w500${program?.poster_path || program?.profile_path}`} alt={`${program?.title || program.name} poster`} />
               <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
             </Link>

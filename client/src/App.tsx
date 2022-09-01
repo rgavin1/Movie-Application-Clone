@@ -6,7 +6,39 @@ import { Box } from "@mui/material";
 import "./assets/styles/app.css";
 import { Footer, SideBar } from "./layouts";
 
-import { HomePage, MoviesPage, TvShowsPage, SearchPage, TvShowDetailsPage } from "./pages";
+import { HomePage, MoviesPage, TvShowsPage, SearchPage, TvShowDetailsPage, MovieDetailsPage } from "./pages";
+
+export type Page = {
+  path: string;
+  component: JSX.Element
+}
+
+const pages: Page[] = [
+  {
+    path: "/",
+    component: <HomePage />,
+  },
+  {
+    path: "search",
+    component: <SearchPage />,
+  },
+  {
+    path: "tv",
+    component: <TvShowsPage />,
+  },
+  {
+    path: "tv/:id",
+    component: <TvShowDetailsPage />,
+  },
+  {
+    path: "movie",
+    component: <MoviesPage />,
+  },
+  {
+    path: "movie/:id",
+    component: <MovieDetailsPage />,
+  }
+]
 
 const App: React.FC = () => {
   return (
@@ -15,11 +47,9 @@ const App: React.FC = () => {
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="search" element={<SearchPage />} />
-            <Route path="tv" element={<TvShowsPage />} />
-            <Route path="tv/:id" element={<TvShowDetailsPage />} />
-            <Route path="movies" element={<MoviesPage />} />
+            {
+              pages.map((page, id) => <Route key={id} path={page.path} element={page.component} />)
+            }
           </Routes>
           <Footer />
         </Box>

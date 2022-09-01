@@ -5,5 +5,5 @@ export { default as SearchPage } from "./search";
 export { default as TvShowsPage } from "./tvShow";
 
 
-export { default as Film } from "./movies/film/Container";
+export { default as MovieDetailsPage } from "./movies/film";
 export { default as TvShowDetailsPage } from "./tvShow/program";

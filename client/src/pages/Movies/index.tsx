@@ -1,5 +1,4 @@
 import React from 'react';
-// import '../../assets/styles/Pages/Film.css';
 import { Hero } from '../../layouts';
 import ImageSlider from '../../components/ImageSlider';
 import { Container } from '@mui/material';
