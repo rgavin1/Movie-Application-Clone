@@ -1,14 +1,4 @@
-import { Program } from "../../utils/types";
-
-export type NowPlayingRawResponse = {
-    dates: { maximum: string; minimum: string; };
-    page: number;
-    results: Program[];
-    total_pages: number;
-    total_results: number;
-}
-
-export const mockNowPlayingRawResponse: NowPlayingRawResponse = {
+export const mockNowPlayingRawResponse = {
     dates: { maximum: "2022-08-31", minimum: "2022-07-14" },
     page: 1,
     results: [

@@ -1,8 +1,9 @@
 import { RawResponse } from '../utils/types'
 import { trendingMoviesResponse } from './mocks/trendingMovies'
-import { NowPlaying } from './mocks/moviesNowPlaying'
 import { mockUpcomingMovies } from './mocks/mockUpcomingMovies'
 import { topRated } from './mocks/mockTopRatedMovies'
+import { mockNowPlayingRawResponse } from './mocks/moviesNowPlaying'
+import axios from 'axios';
 
 const getTrendingMoviesForWeek = (): RawResponse => {
     return trendingMoviesResponse
@@ -39,16 +40,9 @@ const fetchTopRated = () => {
     return topRated
 }
 
-const fetchNowPlaying = () => {
-    // fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US&page=1`)
-    //     .then(res => res.json())
-    //     .then((items) => {
-    //         setNowPlaying(items.results);
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
-    return NowPlaying
+const fetchNowPlaying = async (): Promise<RawResponse> => {
+    const { data } = await axios.get("http://localhost:8000/movie/now-playing")
+    return data
 }
 
 const fetchUpcomingMovies = () => {

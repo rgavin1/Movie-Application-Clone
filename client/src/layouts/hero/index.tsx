@@ -54,7 +54,7 @@ const ReleaseDate: React.FC<{ release: any }> = ({ release }) => {
 
 const Hero: React.FC<{ mediaType: Omit<MediaType, "person">; searchedProgram?: ShowDetailsRawResponse | undefined }> = ({ mediaType, searchedProgram }) => {
   const { featureData: data } = useFeature(mediaType);
-  const featureData = searchedProgram || (data && data[0]);
+  const featureData = searchedProgram || (data && data);
   return (
     <motion.div
       variants={heroVariant}

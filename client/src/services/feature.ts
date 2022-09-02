@@ -1,6 +1,8 @@
+import axios from "axios";
 import { trendingAllWeekResponse } from './mocks/trendingAllWeekResponse';
 import { MediaType, Program, RawResponse } from '../utils/types'; 
 
+const BASE_URL = "http://localhost:8000"
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 // const GET_TRENDING_ALL_BY_WEEK = `https://api.themoviedb.org/3/trending/all/week?api_key=${TMDB_API_KEY}`;
@@ -12,10 +14,9 @@ const getTrending = async (): Promise<Program[]> => {
     return data.results;
 }
 
-const getFeature = (mediaType: Omit<MediaType, "person">): RawResponse => {
-    // const list = await getTrending();
-    // return list[Math.floor(Math.random() * list.length)];
-    return trendingAllWeekResponse
+const getFeature = async (mediaType: Omit<MediaType, "person">): Promise<RawResponse> => {
+    const { data } = await axios.get(`${BASE_URL}/features/${mediaType}`);
+    return data
 }
 
 const featureService = {
