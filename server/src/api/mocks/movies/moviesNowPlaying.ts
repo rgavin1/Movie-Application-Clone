@@ -1,4 +1,4 @@
-export const mockNowPlayingRawResponse = {
+export const mockNowPlayingResponse = {
     dates: { maximum: "2022-08-31", minimum: "2022-07-14" },
     page: 1,
     results: [

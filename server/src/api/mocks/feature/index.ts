@@ -1,0 +1,1 @@
+export { mockFeatures } from './trendingAllWeekResponse'

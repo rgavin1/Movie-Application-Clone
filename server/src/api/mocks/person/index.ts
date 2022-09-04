@@ -1,0 +1,1 @@
+export { mockTrendingPersonsResponse } from './trendingPersons'

@@ -1,4 +1,4 @@
-export const payload: any[] = [
+export const mockFeatures = [
     {
         adult: false,
         backdrop_path: "/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg",
@@ -343,7 +343,7 @@ export const payload: any[] = [
 
 export const trendingAllWeekResponse: any = {
     page: 1,
-    results: payload,
+    results: mockFeatures,
     total_pages: 1000,
     total_results: 20000
 }

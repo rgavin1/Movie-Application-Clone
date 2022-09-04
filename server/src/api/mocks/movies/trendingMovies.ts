@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const trendingMoviesResponse: RawResponse = {
+export const mockTrendingMoviesResponse = {
     page: 1,
     results: [
         {

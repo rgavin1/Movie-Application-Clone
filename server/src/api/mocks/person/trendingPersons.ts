@@ -1,6 +1,4 @@
-import { PersonRawResponse } from "../../utils/types";
-
-export const trendingPersonsResponse: PersonRawResponse = {
+export const mockTrendingPersonsResponse = {
     page: 1,
     results: [
         {

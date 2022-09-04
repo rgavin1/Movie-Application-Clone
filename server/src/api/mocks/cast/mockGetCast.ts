@@ -1,9 +1,4 @@
-
-// https://api.themoviedb.org/3/tv/84773/credits?api_key=57de03656a5cac8fd953412ef369fb06&language=en-US
-
-import { CastRawResponse } from "../../utils/types";
-
-export const mockCast: CastRawResponse = {
+export const mockCast = {
     cast: [
         {
             adult: false,

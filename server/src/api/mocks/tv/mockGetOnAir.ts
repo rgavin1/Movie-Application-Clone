@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const OnAir: RawResponse = {
+export const mockOnAirResponse = {
     page: 1,
     results: [
         {

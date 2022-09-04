@@ -1,0 +1,1 @@
+export { mockMultiSearchResponse } from './mockMultiSearch'

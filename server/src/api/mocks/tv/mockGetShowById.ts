@@ -1,8 +1,4 @@
-import { ShowDetailsRawResponse } from "../../utils/types";
-// url https://api.themoviedb.org/3/tv/84773?api_key=57de03656a5cac8fd953412ef369fb06&language=en-US
-
-
-export const mockGetShowDetailsById: ShowDetailsRawResponse = {
+export const mockGetShowDetailsByIdResponse = {
     adult: false,
     backdrop_path: "/pdfCr8W0wBCpdjbZXSxnKhZtosP.jpg",
     created_by: [

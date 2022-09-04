@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const AiringToday: RawResponse = {
+export const mockAiringTodayResponse = {
     page: 1,
     results: [
         {

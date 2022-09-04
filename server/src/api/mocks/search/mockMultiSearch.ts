@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const MultiSearchRawResponse: any = {
+export const mockMultiSearchResponse = {
     page: 1,
     results: [
         {

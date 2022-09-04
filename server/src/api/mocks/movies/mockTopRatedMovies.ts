@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const topRated: RawResponse = {
+export const mockTopRatedMoviesResponse = {
     page: 1,
     results: [
         {

@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const mockUpcomingMovies: RawResponse = {
+export const mockUpcomingMoviesResponse = {
     dates: { maximum: "2022-09-20", minimum: "2022-09-01" },
     page: 1,
     results: [

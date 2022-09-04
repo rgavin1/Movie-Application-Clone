@@ -1,6 +1,4 @@
-import { RawResponse } from "../../utils/types";
-
-export const GetPopular: RawResponse = {
+export const mockPopularTelevisionResponse = {
     page: 1,
     results: [
         {
