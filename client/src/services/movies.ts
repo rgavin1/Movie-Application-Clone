@@ -3,6 +3,7 @@ import { RawResponse } from '../utils/types'
 import { trendingMoviesResponse } from './mocks/trendingMovies'
 
 const BASE_URL = "http://localhost:8000/api/movies"
+const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 // TODO: Clean-up
 const getTrendingMoviesForWeek = (): RawResponse => {
@@ -10,22 +11,22 @@ const getTrendingMoviesForWeek = (): RawResponse => {
 }
 
 const fetchPopularMovies = async (): Promise<RawResponse> => {
-    const { data } = await axios.get(`${BASE_URL}/popular`)
+    const { data } = await axiosInstance.get("/popular")
     return data
 }
 
 const fetchTopRated = async (): Promise<RawResponse> => {
-    const { data } = await axios.get(`${BASE_URL}/top-rated`)
+    const { data } = await axiosInstance.get("/top-rated")
     return data
 }
 
 const fetchNowPlaying = async (): Promise<RawResponse> => {
-    const { data } = await axios.get(`${BASE_URL}/now-playing`)
+    const { data } = await axiosInstance.get("/now-playing")
     return data
 }
 
 const fetchUpcomingMovies = async (): Promise<RawResponse> => {
-    const { data } = await axios.get(`${BASE_URL}/upcoming`)
+    const { data } = await axiosInstance.get("/upcoming")
     return data
 }
 
