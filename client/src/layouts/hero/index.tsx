@@ -71,7 +71,7 @@ const Hero: React.FC<{ mediaType: Omit<MediaType, "person">; searchedProgram?: S
       }}
     >
       <Grid container p={5}>
-        <Grid item xs md={6} style={{ paddingTop: "8%", paddingBottom: "8%" }}>
+        <Grid item xs md={6} style={{ paddingTop: "8%", paddingBottom: "10%" }}>
           {/* <Grid item xs={12}>
             {featureData?.networks && <Network networks={featureData?.networks} />}
           </Grid> */}

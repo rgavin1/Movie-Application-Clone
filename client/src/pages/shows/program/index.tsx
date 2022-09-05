@@ -3,29 +3,11 @@ import { useParams } from "react-router";
 import { Hero } from "../../../layouts";
 import Information from "../../../components/Information";
 import Links from "../../../components/Links";
-import { Container } from "@mui/material";
+import { useShowDetails } from "../../../hooks";
 
 const ShowDetails: React.FC = () => {
     const { id } = useParams();
-    const [show, setShow] = useState({});
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        const fetchShow = () => {
-            fetch(
-                `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
-            )
-                .then((res) => res.json())
-                .then((items) => {
-                    setShow(items);
-                    // fetchCast();
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        };
-        fetchShow();
-    }, [id]);
+    const { data: show } = useShowDetails(id);
 
     return (
         <div id="television-show-details">

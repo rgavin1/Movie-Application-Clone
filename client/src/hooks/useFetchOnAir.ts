@@ -19,7 +19,7 @@ const useFetchOnAir = () => {
                 setIsFetching(false);
             }
         })()
-    })
+    }, [])
     return { data, isFetching, error }
 }
 

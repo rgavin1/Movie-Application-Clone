@@ -19,7 +19,7 @@ const useNowPlayingMovies = () => {
                 setIsFetching(true);
             }
         })()
-    })
+    }, [])
     return { data, isFetching, error }
 }
 

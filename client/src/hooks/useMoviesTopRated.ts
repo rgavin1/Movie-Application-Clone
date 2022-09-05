@@ -18,7 +18,7 @@ const useMoviesTopRated = () => {
                 setIsFetching(false);
             }
         })()
-    })
+    }, [])
     return { data, isFetching, error }
 }
 

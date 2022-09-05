@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import televisionServices from '../services/television'
-import { CastRawResponse } from '../utils/types'
+import { ShowDetailsRawResponse } from '../utils/types'
 
-const useCast = () => {
-    const [data, setData] = useState<CastRawResponse>()
+const useShowDetails = (id?: string) => {
+    const [data, setData] = useState<ShowDetailsRawResponse>()
     const [isFetching, setIsFetching] = useState(false)
     const [error, setError] = useState()
+
     useEffect(() => {
         (async () => {
+            setIsFetching(true);
             try {
-                setIsFetching(true);
-                const response = await televisionServices.getCreditsById(undefined);
+                const response = await televisionServices.getShowDetailsById(id);
                 setData(response)
             } catch (e: any) {
                 setError(e)
@@ -18,8 +19,9 @@ const useCast = () => {
                 setIsFetching(false);
             }
         })()
-    })
+    }, [id]);
+
     return { data, isFetching, error }
 }
 
-export default useCast
+export default useShowDetails

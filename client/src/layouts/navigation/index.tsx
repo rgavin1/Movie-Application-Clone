@@ -19,11 +19,11 @@ const routes: Route[] = [
     icon: faSearch
   },
   {
-    path: "tv",
+    path: "shows",
     icon: faTv
   },
   {
-    path: "movie",
+    path: "movies",
     icon: faFilm
   }
 ]

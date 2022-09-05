@@ -18,7 +18,7 @@ const useUpcomingMovies = () => {
                 setIsFetching(false)
             }
         })()
-    })
+    }, [])
     return { data, isFetching, error }
 }
 

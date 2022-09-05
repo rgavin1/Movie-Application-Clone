@@ -23,8 +23,8 @@ const ShowDetails: React.FC = () => {
         (async () => {
             try {
                 setIsFetching(true)
-                const results = await televisionServices.getShowDetailsById(id)
-                setData(results)
+                const response = await televisionServices.getShowDetailsById(id)
+                setData(response)
             } catch (e: any) {
                 setError(e)
             } finally {

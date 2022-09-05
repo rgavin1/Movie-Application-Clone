@@ -23,19 +23,19 @@ const pages: Page[] = [
     component: <SearchPage />,
   },
   {
-    path: "tv",
+    path: "shows",
     component: <TvShowsPage />,
   },
   {
-    path: "tv/:id",
+    path: "shows/:id",
     component: <TvShowDetailsPage />,
   },
   {
-    path: "movie",
+    path: "movies",
     component: <MoviesPage />,
   },
   {
-    path: "movie/:id",
+    path: "movies/:id",
     component: <MovieDetailsPage />,
   }
 ]
