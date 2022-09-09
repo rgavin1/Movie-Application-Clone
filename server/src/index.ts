@@ -6,7 +6,7 @@ const movieRoutes = require("./api/routes/movies");
 const searchRoute = require("./api/routes/search");
 const televisionRoutes = require("./api/routes/television");
 
-const PORT = 8000
+const PORT = process.env.PORT || 3000
 
 // Middleware
 const app = express()
