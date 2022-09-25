@@ -12,7 +12,8 @@
     "typescript": "^4.8.2"
   },
   "scripts": {
-    "start": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "start": "node src/index.ts"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

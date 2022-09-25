@@ -45,6 +45,7 @@ docker run docker_image_name
    docker run -p 3000:3000 --name docker_container_name docker_image_name
    ``` 
    - In this shows how the host machine makes an external call to the container the requests gets passed to the node server inside the container
+
    ![image](./src/assets/images/docker_portforwarding.png)
 
 
@@ -58,3 +59,18 @@ docker image rm container_id -f
 ```bash
 docker 
 ```
+
+### Checkout the files located within the docker container
+
+```bash
+docker exec -it docker_container_name bash
+```
+
+#### Flags:
+- Interactive `-i`
+
+## Start the Server
+
+- Option 1: Locally
+
+- Option 2: Local Docker Container
