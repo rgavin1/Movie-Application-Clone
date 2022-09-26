@@ -33,10 +33,14 @@ const Search: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        if (searchTerm !== "") {
-            const results = searchService.searchByQuery(searchTerm);
-            setList(results);
+        const searchItemByTerm = async (term: string) => {
+            if (term !== "") {
+                const results = await searchService.searchByQuery(searchTerm);
+                setList(results);
+            }
         }
+
+        searchItemByTerm(searchTerm)
     }, [searchTerm])
 
     const searchByTerm = (query: string) => setSearchTerm(query)

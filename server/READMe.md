@@ -69,7 +69,7 @@ docker exec -it docker_container_name bash
 #### Flags:
 - Interactive `-i`
 
-## Start the Server
+# Start the Server
 
 - Option 1: Locally
 
