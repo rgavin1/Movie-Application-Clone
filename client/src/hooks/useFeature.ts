@@ -4,6 +4,7 @@ import { MediaType, Program } from '../utils/types';
 
 const useFeature = (mediaType: Omit<MediaType, "person">) => {
     const [featureData, setFeature] = useState<Program>();
+    const [featureList, setFeatureList] = useState<Program[]>();
     const [isSearching, setIsSearching] = useState(false);
     const [error, setError] = useState();
 
@@ -18,6 +19,7 @@ const useFeature = (mediaType: Omit<MediaType, "person">) => {
             try {
                 const { results } = await featureService.getFeature(mediaType);
                 setFeature(randomizeList(results));
+                setFeatureList(results)
             } catch (e: any) {
                 setError(e);
             } finally {
@@ -26,7 +28,7 @@ const useFeature = (mediaType: Omit<MediaType, "person">) => {
         })()
     }, [mediaType]);
 
-    return { featureData, isSearching, error }
+    return { featureData, featureList, isSearching, error }
 }
 
 export default useFeature

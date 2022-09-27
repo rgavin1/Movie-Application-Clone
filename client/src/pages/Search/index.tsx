@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Container, TextField, Grid, Typography } from "@mui/material";
+import debounce from "lodash.debounce"
+
 import searchService from '../../services/search';
+import { useFeature } from '../../hooks';
+import { Program } from '../../utils/types';
 
 const Image: React.FC<{ item: any }> = ({ item }) => {
     return <>
@@ -29,7 +33,9 @@ const ItemsList: React.FC<{ list: any }> = ({ list }) => {
 }
 
 const Search: React.FC = () => {
-    const [list, setList] = useState([]);
+    const { featureList } = useFeature("movie")
+
+    const [list, setList] = useState<Program[]>();
     const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
@@ -37,20 +43,29 @@ const Search: React.FC = () => {
             if (term !== "") {
                 const results = await searchService.searchByQuery(searchTerm);
                 setList(results);
+                return;
             }
+            setList(featureList)
         }
-
         searchItemByTerm(searchTerm)
-    }, [searchTerm])
+    }, [searchTerm, featureList])
 
-    const searchByTerm = (query: string) => setSearchTerm(query)
+    /**
+     * So I'm cheap, this debounce function should wait 800ms 
+     * between ketstrokes. This will reduce the number of request 
+     * to the search endpoint.
+     * 
+     */
+    const debounceHandler = debounce((query: string) => {
+        setSearchTerm(query)
+    }, 800)
 
     return <Box id="search-page" sx={{ minHeight: "100vh" }}>
         <Container>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }} p={4}>
                 <FontAwesomeIcon icon={faSearch} />
                 <TextField id="input-with-sx" fullWidth label="Search for a movie, tv show, person......" variant="outlined" color="info"
-                    focused sx={{ input: { color: '#fff' } }} onChange={(e) => searchByTerm(e.target.value)} />
+                    focused sx={{ input: { color: '#fff' } }} onChange={(e) => debounceHandler(e.target.value)} />
             </Box>
             {list && <ItemsList list={list} />}
         </Container>

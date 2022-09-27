@@ -6,7 +6,8 @@ const router = express.Router()
 const REACT_APP_TMDB_API_KEY = "API_KEY"
 
 
-router.get('/:media', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
+    const { media } = req.query;
     try {
         if (!trendingAllWeekResponse) {
             const { data } = await axios.get(`https://api.themoviedb.org/3/trending/${req.params.media}/week?api_key=${REACT_APP_TMDB_API_KEY}`)

@@ -7,8 +7,8 @@ const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 // FIXME: Return correct response
 const searchByQuery = async (term: string): Promise<any> => {
-    const response = await axiosInstance.get("/search", { params: { term } });
-    console.log('response', response)
+    const { data } = await axiosInstance.get("/search", { params: { term } });
+    console.log('{ data } ', data)
     const output = MultiSearchRawResponse.results.filter((item: any) => item.original_title?.toLowerCase().includes(term.toLowerCase()))
     return output;
 }
