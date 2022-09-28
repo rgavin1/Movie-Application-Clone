@@ -42,3 +42,6 @@ export const TelevisionIdGenre: { [key: number]: TelevisionGenre } = {
 };
 
 export const FeatureGenre = { ...MovieIdGenre, ...TelevisionIdGenre }
+
+export const IMAGE_SIZE_WIDTH_500 = "https://image.tmdb.org/t/p/w500/";
+export const IMAGE_SIZE_HEIGHT_632 = "https://image.tmdb.org/t/p/h632/";

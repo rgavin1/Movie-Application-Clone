@@ -10,7 +10,7 @@ const ImageList: React.FC<{ list: Program[]; loading: boolean }> = ({ list, load
             return <Grid key={id} item xs={3}>
                 <Link to={`${item.media_type}-profile/${item.id}`} style={{ textDecoration: "none" }}>
                     <Image item={item} loading={loading} />
-                    {loading ? <Skeleton sx={{ backgroundColor: '#3a3a3a', fontSize: '1rem', marginTop: '15px' }} animation="wave" variant="text" /> : <Typography p={2} variant="subtitle1" textAlign="center" component="div" color="white">{item.title ? item.title : item.name}</Typography>}
+                    {loading ? <Skeleton sx={{ backgroundColor: '#3a3a3a', fontSize: '1rem', marginTop: '15px', marginLeft: 'auto', marginRight: 'auto' }} width="80%" animation="wave" variant="text" /> : <Typography p={2} variant="subtitle1" textAlign="center" component="div" color="white">{item.title ? item.title : item.name}</Typography>}
                 </Link>
             </Grid>
         })}
