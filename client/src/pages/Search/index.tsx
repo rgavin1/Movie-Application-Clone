@@ -25,13 +25,13 @@ const Search: React.FC = () => {
                 setList(results);
                 setTimeout(() => {
                     setLoading(false)
-                }, 300)
+                }, 800)
                 return;
             }
             setList(featureList)
             setTimeout(() => {
                 setLoading(false)
-            }, 300)
+            }, 800)
         }
         searchItemByTerm(searchTerm)
     }, [searchTerm, featureList])
