@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { RawResponse, CastRawResponse, ShowDetailsRawResponse } from '../utils/types'
+import { RawResponse, CastRawResponse, ShowDetailsRawResponse, TelevisionShowDetails } from '../utils/types'
 
 const BASE_URL = `${process.env.REACT_APP_DEV_SERVER_PORT}/api/v1/tv`;
 const axiosInstance = axios.create({ baseURL: BASE_URL });
@@ -39,7 +39,7 @@ const fetchRecommendedShows = async ({ id = 88396 }): Promise<RawResponse> => {
     return data
 }
 
-const getShowDetailsById = async (id?: string): Promise<ShowDetailsRawResponse> => {
+const getShowDetailsById = async (id?: string): Promise<any> => {
     const { data } = await axiosInstance.get(`/details/${id}`)
     return data
 }

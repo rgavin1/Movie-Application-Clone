@@ -24,7 +24,7 @@ const ShowDetails: React.FC = () => {
             try {
                 setIsFetching(true)
                 const response = await televisionServices.getShowDetailsById(id)
-                setData(response)
+                setData(response as ShowDetailsRawResponse)
             } catch (e: any) {
                 setError(e)
             } finally {

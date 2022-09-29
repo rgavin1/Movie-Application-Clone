@@ -12,7 +12,7 @@ const useShowDetails = (id?: string) => {
             setIsFetching(true);
             try {
                 const response = await televisionServices.getShowDetailsById(id);
-                setData(response)
+                setData(response as ShowDetailsRawResponse)
             } catch (e: any) {
                 setError(e)
             } finally {

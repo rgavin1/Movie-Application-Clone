@@ -1,6 +1,6 @@
 import axios from 'axios';
 import express, { Request, Response } from 'express'
-import { mockOnAirResponse, mockAiringTodayResponse, mockTrendingShowsResponse, mockPopularTelevisionResponse, } from '../mocks/tv'
+import { mockOnAirResponse, mockAiringTodayResponse, mockTrendingShowsResponse, mockPopularTelevisionResponse, mockTelevisionShowDetailsResponse, } from '../mocks/tv'
 
 const REACT_APP_TMBD_API_KEY = "API_KEY"
 const router = express.Router()
@@ -93,7 +93,7 @@ router.get('/recommendations/:id', async (req: Request, res: Response) => {
 })
 
 router.get('/details/:id', async (req: Request, res: Response) => {
-    if (!mockOnAirResponse) {
+    if (!mockTelevisionShowDetailsResponse) {
         try {
             const response = await axios.get(`https://api.themoviedb.org/3/tv/${req.params.id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
             res.send(response)
@@ -101,7 +101,7 @@ router.get('/details/:id', async (req: Request, res: Response) => {
             res.status(404).send(e)
         }
     }
-    res.send(mockOnAirResponse)
+    res.send(mockTelevisionShowDetailsResponse)
 })
 
 router.get('/credits/:id', async (req: Request, res: Response) => {

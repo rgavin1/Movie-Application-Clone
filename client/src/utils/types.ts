@@ -225,3 +225,81 @@ export type Job = "Visual Effects Supervisor" | "Executive Producer" | "Original
 export type Crew = Omit<Cast, "character" | "order"> & { department: Department; job: Job }
 
 export type CastRawResponse = { id: number; cast: Cast[]; crew: Crew[] }
+
+export type LastEpisodeToAir = {
+    air_date: string;
+    episode_number: number;
+    id: number;
+    name: string;
+    overview: string;
+    production_code: number;
+    season_number: number;
+    still_path: string;
+    vote_average: string;
+    vote_count: number;
+}
+
+export type Seasons = {
+    air_date: string;
+    episode_count: number;
+    id: number;
+    name: string;
+    overview: string;
+    poster_path: string;
+    season_number: number;
+}
+
+// FIXME: Get correct origin country
+export type ProductionCompanies = {
+    id: number;
+    logo_path: string;
+    name: string;
+    origin_country: string;
+}
+
+export type ProductionCountries = {
+    iso_3166_1: string;
+    name: string;
+}
+
+// FIXME: Get correct english name
+export type SpokenLanguages = {
+    english_name: string;
+    iso_639_1: string;
+    name: string;
+}
+
+export type TelevisionShowDetails = {
+    adult?: boolean;
+    backdrop_path: string;
+    created_by: CreatedBy[];
+    episode_run_time: number[];
+    first_air_date: string;
+    genres: Genre[];
+    homepage: string;
+    id: number;
+    in_production: boolean;
+    languages: string[];
+    last_air_date: string | null;
+    last_episode_to_air: LastEpisodeToAir | null;
+    name: string;
+    next_episode_to_air: null,
+    networks: Network[];
+    number_of_episodes: number;
+    number_of_seasons: number;
+    origin_country: string[];
+    original_language: string;
+    original_name: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    production_companies: ProductionCompanies[];
+    production_countries: ProductionCountries[];
+    seasons: Seasons[];
+    spoken_languages: SpokenLanguages[];
+    status: string;
+    tagline: string;
+    type: string;
+    vote_average: number;
+    vote_count: number;
+}
