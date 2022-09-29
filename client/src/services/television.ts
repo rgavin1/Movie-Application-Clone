@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { RawResponse, CastRawResponse, ShowDetailsRawResponse } from '../utils/types'
 
-const BASE_URL = "http://localhost:8000/api/tv"
+const BASE_URL = `${process.env.REACT_APP_DEV_SERVER_PORT}/api/v1/tv`;
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 const fetchTrendingShows = async (): Promise<RawResponse> => {

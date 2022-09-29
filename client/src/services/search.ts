@@ -2,7 +2,7 @@ import axios from 'axios'
 import { RawResponse } from '../utils/types';
 import { MultiSearchRawResponse } from "./mocks/mockMultiSearch"
 
-const BASE_URL = "http://localhost:3000/api/v1"
+const BASE_URL = `${process.env.REACT_APP_DEV_SERVER_PORT}/api/v1`
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 // FIXME: Return correct response

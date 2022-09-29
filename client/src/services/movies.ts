@@ -2,7 +2,7 @@ import axios from 'axios';
 import { RawResponse } from '../utils/types'
 import { trendingMoviesResponse } from './mocks/trendingMovies'
 
-const BASE_URL = "http://localhost:8000/api/movies"
+const BASE_URL = `${process.env.REACT_APP_DEV_SERVER_PORT}/api/movies`
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 // TODO: Clean-up

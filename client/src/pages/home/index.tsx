@@ -7,9 +7,9 @@ import ImageSlider from '../../components/ImageSlider';
 import { useMoviesTrends, useTrendingShows, usePersons } from '../../hooks';
 
 const Home: React.FC = () => {
+    const { data: persons } = usePersons();
     const { data: movies } = useMoviesTrends();
     const { data: shows } = useTrendingShows();
-    const { data: persons } = usePersons();
 
     return <div className="main">
         <Hero mediaType="movie" searchedProgram={undefined} />
