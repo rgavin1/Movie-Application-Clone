@@ -3,20 +3,22 @@ import React from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Genre from "../../components/Genre";
 import Rating from "../../components/Rating";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { Typography, Grid, Stack } from "@mui/material";
-import { useFeature } from "../../hooks";
+import { Typography, Grid, Stack, Button, Modal, Box } from "@mui/material";
+import { useFeature, useTelevisionShowDetails } from "../../hooks";
 import { MediaType, Program, ShowDetailsRawResponse } from "../../utils/types";
-import { IMAGE_SIZE_ORIGINAL } from "../../utils/helpers";
+import { IMAGE_SIZE_ORIGINAL, IMAGE_SIZE_WIDTH_500_LOGO } from "../../utils/helpers";
 
-const Network = () => {
-  return {
+// TODO: Create the list of networks
+const Network: React.FC<{ tvId?: number }> = ({ tvId = "213" }) => {
+  const { details } = useTelevisionShowDetails(tvId as string);
+  const response = details?.networks[0];
+  const img = `${IMAGE_SIZE_WIDTH_500_LOGO}${response?.logo_path}`;
+  return (<img src={img} width="80px" alt={response?.name} />)
     /* <Grid item xs={12}>
             {featureData?.networks && <Network networks={featureData?.networks} />}
-          </Grid> */
-  };
+          </Grid> */;
 };
 
 const Header: React.FC<{ featureData?: Program | ShowDetailsRawResponse }> = ({
@@ -99,27 +101,51 @@ const Hero: React.FC<{
 }> = ({ mediaType, searchedProgram }) => {
   const { featureData: data } = useFeature(mediaType);
   const featureData = searchedProgram || (data && data);
+  const styles = {
+    backgroundColor: "#00000080",
+    backgroundImage: `url(${IMAGE_SIZE_ORIGINAL}${featureData?.backdrop_path})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "initial",
+    backgroundSize: "cover",
+    backgroundBlendMode: "overlay",
+  }
+
+  // Modal Functions
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const modalStyles = {
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '80%',
+    bgcolor: '#000',
+    border: '2px solid #000',
+    boxShadow: 24,
+  };
   return (
-    <Grid
-      container
-      p={5}
-      style={{
-        backgroundColor: "#00000080",
-        backgroundImage: `url(${IMAGE_SIZE_ORIGINAL}${featureData?.backdrop_path})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "initial",
-        backgroundSize: "cover",
-        backgroundBlendMode: "overlay",
-      }}
-    >
+    <Grid container p={5} style={styles}>
       <Grid item xs md={6} style={{ paddingTop: "8%", paddingBottom: "10%" }}>
-        {/* <Network /> */}
+        <Network tvId={featureData?.id} />
         <Header featureData={featureData} />
         <Information featureData={featureData} />
         <Overview featureData={featureData} />
         <Grid item>
           {featureData?.genre_ids && <Genre genres={featureData?.genre_ids} />}
         </Grid>
+        <Grid item>
+          <Button sx={{ marginTop: "15px" }} color="secondary" variant="contained" onClick={() => setIsModalOpen(!isModalOpen)}>Watch Trailer</Button>
+          <Modal
+            open={isModalOpen}
+            onClose={() => setIsModalOpen(!isModalOpen)}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={modalStyles}>
+              <iframe width="100%" height="500px" style={{ border: "none" }} src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1"></iframe>
+            </Box>
+          </Modal>
+        </Grid>
+
       </Grid>
     </Grid>
   );
