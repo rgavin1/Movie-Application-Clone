@@ -8,34 +8,59 @@ import { Link } from 'react-router-dom';
 
 import { Typography, Grid, Stack } from '@mui/material';
 import { useFeature } from '../../hooks';
-import { MediaType, ShowDetailsRawResponse } from '../../utils/types';
+import { MediaType, Program, ShowDetailsRawResponse } from '../../utils/types';
+import { IMAGE_SIZE_ORIGINAL } from '../../utils/helpers';
 
-// Parent Animation
-const heroVariant = {
-  start: {
-    y: '-100%',
-    opacity: 0
-  },
-  show: {
-    y: '0%',
-    opacity: 1,
-    transition: {
-      duration: 1.5,
-      when: "beforeChildren",
-      staggerChildren: 0.4
-    }
-  }
+const Network = () => {
+  return (
+    {/* <Grid item xs={12}>
+            {featureData?.networks && <Network networks={featureData?.networks} />}
+          </Grid> */}
+  )
 }
 
-// Children Animation
-const childVariant = {
-  start: {
-    y: '150%',
-  },
-  show: {
-    y: '0%',
-    transition: { duration: 1.5 }
-  }
+const Header: React.FC<{ featureData?: Program | ShowDetailsRawResponse }> = ({ featureData }) => {
+  return (
+    <Grid item>
+      <Link to={`/${featureData?.media_type}-profile/${featureData?.id}`} style={{ textDecoration: "none" }}>
+        <Typography gutterBottom variant="h2" component="div" color="white">
+          {featureData?.title ? featureData?.title : featureData?.name}
+        </Typography>
+      </Link>
+    </Grid>
+  )
+}
+
+const Information: React.FC<{ featureData?: Program | ShowDetailsRawResponse }> = ({ featureData }) => {
+  return (
+    <Grid item xs={6}>
+      <Stack direction="row" justifyContent="space-between">
+        {featureData?.release_date && (
+          <Typography variant="subtitle1" component="div" color="white">
+            <ReleaseDate release={featureData?.release_date} />
+          </Typography>
+        )}
+        <Typography variant="subtitle1" component="div" color="white">
+          <Rating rate={featureData?.vote_average} />
+        </Typography>
+        <Typography variant="subtitle1" component="div" color="white">
+          {featureData?.vote_count}
+        </Typography>
+        <Typography variant="subtitle1" component="div" color="white">
+          {featureData?.original_language}
+        </Typography>
+      </Stack>
+    </Grid>
+  )
+}
+
+const Overview: React.FC<{ featureData?: Program | ShowDetailsRawResponse }> = ({ featureData }) => {
+  const overview = featureData?.overview
+  return (<Grid item>
+    <Typography variant="subtitle1" component="div" color="white" marginTop="15px" marginBottom="15px">
+      {overview}
+    </Typography>
+  </Grid>)
 }
 
 const ReleaseDate: React.FC<{ release: any }> = ({ release }) => {
@@ -56,70 +81,24 @@ const Hero: React.FC<{ mediaType: Omit<MediaType, "person">; searchedProgram?: S
   const { featureData: data } = useFeature(mediaType);
   const featureData = searchedProgram || (data && data);
   return (
-    <motion.div
-      variants={heroVariant}
-      initial="start"
-      animate="show"
-      exit={{ opacity: 0 }}
-      style={{
-        backgroundColor: "#00000080",
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${featureData?.backdrop_path})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "initial",
-        backgroundSize: "cover",
-        backgroundBlendMode: "overlay"
-      }}
-    >
-      <Grid container p={5}>
+    <Grid container p={5} style={{
+      backgroundColor: "#00000080",
+      backgroundImage: `url(${IMAGE_SIZE_ORIGINAL}${featureData?.backdrop_path})`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "initial",
+      backgroundSize: "cover",
+      backgroundBlendMode: "overlay"
+    }}>
         <Grid item xs md={6} style={{ paddingTop: "8%", paddingBottom: "10%" }}>
-          {/* <Grid item xs={12}>
-            {featureData?.networks && <Network networks={featureData?.networks} />}
-          </Grid> */}
-          <Grid item>
-            <Link to={`/${featureData?.media_type}-profile/${featureData?.id}`} style={{ textDecoration: "none" }}>
-              <motion.h1 variants={childVariant} style={{ marginTop: '0' }}>
-                <Typography gutterBottom variant="h2" component="div" color="white">
-                  {featureData?.title ? featureData?.title : featureData?.name}
-                </Typography>
-              </motion.h1>
-            </Link>
-          </Grid>
-          <Grid item xs={6}>
-            <motion.div variants={childVariant} id="feature-metadata">
-              <Stack direction="row" justifyContent="space-between">
-                {featureData?.release_date && (
-                  <Typography variant="subtitle1" component="div" color="white">
-                    <ReleaseDate release={featureData?.release_date} />
-                  </Typography>
-                )}
-                <Typography variant="subtitle1" component="div" color="white">
-                  <Rating rate={featureData?.vote_average} />
-                </Typography>
-                <Typography variant="subtitle1" component="div" color="white">
-                  {featureData?.vote_count}
-                </Typography>
-                <Typography variant="subtitle1" component="div" color="white">
-                  {featureData?.original_language}
-                </Typography>
-              </Stack>
-            </motion.div>
-          </Grid>
-          <Grid item>
-            <motion.p id="feature-overview" variants={childVariant}>
-              <Typography variant="subtitle1" component="div" color="white">
-                {featureData?.overview}
-              </Typography>
-            </motion.p>
-          </Grid>
-          <Grid item>
-            <motion.div variants={childVariant}>
-              {featureData?.genre_ids && <Genre genres={featureData?.genre_ids} />}
-            </motion.div>
+        {/* <Network /> */}
+        <Header featureData={featureData} />
+        <Information featureData={featureData} />
+        <Overview featureData={featureData} />
+        <Grid item>
+          {featureData?.genre_ids && <Genre genres={featureData?.genre_ids} />}
           </Grid>
         </Grid>
-      </Grid>
-      {/* <motion.div variants={childVariant} className="main__playbtn"><FontAwesomeIcon icon={faPlayCircle} /></motion.div> */}
-    </motion.div>
+    </Grid>
   );
 };
 
