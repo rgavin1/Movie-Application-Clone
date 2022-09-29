@@ -4,6 +4,30 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { Program, PersonRawResult } from '../utils/types';
 import '../assets/styles/ImageSlider.css';
+import { IMAGE_SIZE_WIDTH_500 } from '../utils/helpers';
+
+const ImageOptions: React.FC<{ program: Program | PersonRawResult }> = ({ program }) => {
+  const { poster_path, profile_path, title, name, media_type, id } = program
+
+  let option;
+
+  // Profile
+  if (profile_path) {
+    option = <img id={`${media_type}-${id}`} width="100%" src={IMAGE_SIZE_WIDTH_500 + profile_path} alt={name + "profile"} />
+  }
+
+  // Poster
+  if (poster_path) {
+    option = <img id={`${media_type}-${id}`} width="100%" src={IMAGE_SIZE_WIDTH_500 + poster_path} alt={title + "poster"} />
+  }
+
+  // Blank Person
+  if (!profile_path && !poster_path) {
+    option = <div id={`${media_type}-${id}`} style={{ width: "100%", backgroundColor: "#333333", height: "273px" }} />
+  }
+
+  return <>{option}</>
+}
 
 const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResult[] | undefined }> = ({ text, programs }) => {
   var settings = {
@@ -22,7 +46,7 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
           {
           programs?.map((program: Program | PersonRawResult, id: number) =>
             <Link key={id} to={`/${program?.media_type}/${program.id}`}>
-              <img width="100%" src={`https://image.tmdb.org/t/p/w500${program?.poster_path || program?.profile_path}`} alt={`${program?.title || program.name} poster`} />
+              <ImageOptions program={program} />
               <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
             </Link>
           )
