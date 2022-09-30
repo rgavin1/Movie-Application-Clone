@@ -1,3 +1,5 @@
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+
 export type MediaType = "movie" | "tv" | "person";
 export type Languages =
     | "en"
@@ -302,4 +304,10 @@ export type TelevisionShowDetails = {
     type: string;
     vote_average: number;
     vote_count: number;
+}
+
+export type Route = {
+    name: string;
+    path: string;
+    icon: IconDefinition
 }

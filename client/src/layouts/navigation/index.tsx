@@ -1,28 +1,30 @@
 import React from 'react';
-import MenuItem from './MenuItem';
-import { faHome, faSearch, faTv, faFilm, IconDefinition } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { Container, Drawer } from '@mui/material';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faSearch, faTv, faFilm } from '@fortawesome/free-solid-svg-icons'
 
-export type Route = {
-  path: string;
-  icon: IconDefinition
-}
-const routes: Route[] = [
+import MenuItem from './MenuItem';
+import { Route } from '../../utils/types';
+
+export const routes: Route[] = [
   {
+    name: "home",
     path: "/",
     icon: faHome
   },
   {
+    name: "search",
     path: "search",
     icon: faSearch
   },
   {
+    name: "television shows",
     path: "shows",
     icon: faTv
   },
   {
+    name: "movies",
     path: "movies",
     icon: faFilm
   }

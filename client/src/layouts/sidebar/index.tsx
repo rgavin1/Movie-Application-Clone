@@ -1,76 +1,41 @@
 import React from 'react';
-// import '../../assets/styles/Sidebar.css';
-import Menu from "../navigation";
-// import Profile from '../../pages/profile/Container';
-import { motion } from 'framer-motion';
-import { Container, Drawer, Stack, Typography, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { Link } from 'react-router-dom';
-import MenuItem from '../Menu/MenuItem';
-import { faHome, faSearch, faTv, faFilm } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 
-const Sidebar = () => {
-    const drawerWidth = 50;
 
-    return  <motion.div initial={{ x: '-100%', opacity: 0 }} transition={{ duration: 2.5 }} animate={{ x: '0%', opacity: 1 }} className="sidebar">
-        <Drawer id="drawer" variant="permanent" sx={{
-            width: drawerWidth,
-            backgroundColor: "#000",
-            flexShrink: 0,
-            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-        }}>
-            <List>
-                <ListItem disablePadding>
+import { Route } from '../../utils/types';
+
+import { routes } from '../navigation';
+import MenuItem from '../Menu/MenuItem';
+
+
+const Sidebar: React.FC = () => {
+    return <Drawer id="drawer" variant="permanent" sx={{
+        width: 88,
+        flexShrink: 0,
+        '.MuiPaper-root': {
+            backgroundColor: "#ffffff26"
+        },
+        '.MuiListItem-root': {
+            margin: '15px 0'
+        },
+        '.MuiListItemIcon-root': {
+            justifyContent: 'center'
+        }
+    }}>
+        <List>{
+            routes.map((route: Route) => {
+                return <ListItem disablePadding>
                     <ListItemButton>
                         <ListItemIcon>
-                            <Typography variant="h6" component="div">R</Typography>
+                            <NavLink style={{ color: '#ffffff8f' }} to={route.path} ><MenuItem text={route.name} icon={<FontAwesomeIcon icon={route.icon} size="2x" />} /></NavLink>
                         </ListItemIcon>
                         <ListItemText />
                     </ListItemButton>
                 </ListItem>
-
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <MenuItem text="home" icon={<FontAwesomeIcon icon={faHome} />} />
-                        </ListItemIcon>
-                        <ListItemText />
-                    </ListItemButton>
-                </ListItem>
-
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Link to="search">
-                                <MenuItem text="search" icon={<FontAwesomeIcon icon={faSearch} />} />
-                            </Link>
-                        </ListItemIcon>
-                        <ListItemText />
-                    </ListItemButton>
-                </ListItem>
-
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Link to="shows">
-                                <MenuItem text="shows" icon={<FontAwesomeIcon icon={faTv} />} />
-                            </Link>
-                        </ListItemIcon>
-                        <ListItemText />
-                    </ListItemButton>
-                </ListItem>
-
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemIcon>
-                            <Link to="movies">
-                                <MenuItem text="movie" icon={<FontAwesomeIcon icon={faFilm} />} />
-                            </Link>
-                        </ListItemIcon>
-                        <ListItemText />
-                    </ListItemButton>
-                </ListItem>
-            </List>
+            })
+        }</List>
             {/* <Container>
                 <Stack>
                     <Link to="/">
@@ -93,9 +58,7 @@ const Sidebar = () => {
                     </Link>
                 </Stack>
             </Container> */}
-        </Drawer>
-                {/* <Profile /> */}
-            </motion.div>;
+    </Drawer >
 }
 
 export default Sidebar;
