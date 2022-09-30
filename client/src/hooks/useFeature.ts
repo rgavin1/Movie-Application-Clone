@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import featureService from '../services/feature'
+import { DEFAULT_TIMEOUT } from '../utils/helpers';
 import { MediaType, Program } from '../utils/types';
 
 const useFeature = (mediaType: Omit<MediaType, "person">) => {
@@ -15,7 +16,7 @@ const useFeature = (mediaType: Omit<MediaType, "person">) => {
 
     useEffect(() => {
         (async () => {
-            setIsSearching(false);
+            setIsSearching(true);
             try {
                 const { results } = await featureService.getFeature(mediaType);
                 setFeature(randomizeList(results));
@@ -23,7 +24,9 @@ const useFeature = (mediaType: Omit<MediaType, "person">) => {
             } catch (e: any) {
                 setError(e);
             } finally {
-                setIsSearching(true)
+                setTimeout(() => {
+                    setIsSearching(false);
+                }, DEFAULT_TIMEOUT)
             }
         })()
     }, [mediaType]);

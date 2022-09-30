@@ -1,5 +1,12 @@
 import { MovieGenre, TelevisionGenre } from "./types";
 
+export const DEFAULT_TIMEOUT = 1100
+
+export const IMAGE_SIZE_WIDTH_500_LOGO = "https://image.tmdb.org/t/p/w500";
+export const IMAGE_SIZE_WIDTH_500 = "https://image.tmdb.org/t/p/w500/";
+export const IMAGE_SIZE_HEIGHT_632 = "https://image.tmdb.org/t/p/h632/";
+export const IMAGE_SIZE_ORIGINAL = "https://image.tmdb.org/t/p/original/";
+
 export const MovieIdGenre: { [key: number]: MovieGenre } = {
   28: "Action",
   12: "Adventure",
@@ -42,8 +49,3 @@ export const TelevisionIdGenre: { [key: number]: TelevisionGenre } = {
 };
 
 export const FeatureGenre = { ...MovieIdGenre, ...TelevisionIdGenre }
-
-export const IMAGE_SIZE_WIDTH_500_LOGO = "https://image.tmdb.org/t/p/w500";
-export const IMAGE_SIZE_WIDTH_500 = "https://image.tmdb.org/t/p/w500/";
-export const IMAGE_SIZE_HEIGHT_632 = "https://image.tmdb.org/t/p/h632/";
-export const IMAGE_SIZE_ORIGINAL = "https://image.tmdb.org/t/p/original/";
