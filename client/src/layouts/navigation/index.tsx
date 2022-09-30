@@ -9,22 +9,22 @@ import { Route } from '../../utils/types';
 
 export const routes: Route[] = [
   {
-    name: "home",
+    name: "Home",
     path: "/",
     icon: faHome
   },
   {
-    name: "search",
+    name: "Search",
     path: "search",
     icon: faSearch
   },
   {
-    name: "television shows",
+    name: "Shows",
     path: "shows",
     icon: faTv
   },
   {
-    name: "movies",
+    name: "Movies",
     path: "movies",
     icon: faFilm
   }
