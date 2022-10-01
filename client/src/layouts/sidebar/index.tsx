@@ -25,31 +25,29 @@ const linkStyle = {
   justifyContent: "space-between",
 };
 
+const sidebarStyles = {
+  width: 180,
+  flexShrink: 0,
+  ".MuiPaper-root": {
+    backgroundColor: "#ffffff26",
+    width: "180px",
+    paddingTop: '15px',
+    paddingBottom: '15px'
+  },
+  ".MuiListItem-root": {
+    margin: "15px 0",
+  },
+  ".MuiListItemIcon-root": {
+    justifyContent: "center",
+  },
+  ".MuiListItemIcon-root .active": {
+    color: "#9e3fb0 !important", // FIXME: MaterialUI: secondary-color
+  },
+}
+
 const Sidebar: React.FC = () => {
   return (
-    <Drawer
-      id="drawer"
-      variant="permanent"
-      sx={{
-        width: 220,
-        flexShrink: 0,
-        ".MuiPaper-root": {
-          backgroundColor: "#ffffff26",
-          width: "220px",
-          paddingTop: '15px',
-          paddingBottom: '15px'
-        },
-        ".MuiListItem-root": {
-          margin: "15px 0",
-        },
-        ".MuiListItemIcon-root": {
-          justifyContent: "center",
-        },
-        ".MuiListItemIcon-root .active": {
-          color: "#9e3fb0 !important", // FIXME: MaterialUI: secondary-color
-        },
-      }}
-    >
+    <Drawer id="drawer" variant="permanent" sx={sidebarStyles}>
       <List>
         {routes.map((route: Route) => {
           return (
