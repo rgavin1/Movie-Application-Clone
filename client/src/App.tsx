@@ -1,17 +1,25 @@
 import React from "react";
+import { Box } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box } from "@mui/material";
 import "./assets/styles/app.css";
-import { Footer, SideBar } from "./layouts";
 
-import { HomePage, MoviesPage, TvShowsPage, SearchPage, TvShowDetailsPage, MovieDetailsPage } from "./pages";
+import { Footer, SideBar } from "./layouts";
+import {
+  HomePage,
+  MoviesPage,
+  TvShowsPage,
+  SearchPage,
+  TvShowDetailsPage,
+  MovieDetailsPage,
+} from "./pages";
 
 export type Page = {
   path: string;
-  component: JSX.Element
-}
+  component: JSX.Element;
+};
 
 const pages: Page[] = [
   {
@@ -27,7 +35,11 @@ const pages: Page[] = [
     component: <TvShowsPage />,
   },
   {
-    path: "shows/:id",
+    path: "shows/:id/details",
+    component: <TvShowDetailsPage />,
+  },
+  {
+    path: "search/shows/:id/details", // :shhh: This is wrong
     component: <TvShowDetailsPage />,
   },
   {
@@ -35,10 +47,14 @@ const pages: Page[] = [
     component: <MoviesPage />,
   },
   {
-    path: "movies/:id",
+    path: "movies/:id/details",
     component: <MovieDetailsPage />,
-  }
-]
+  },
+  {
+    path: "search/movies/:id/details",      // :shhh: This is wrong
+    component: <MovieDetailsPage />,
+  },
+];
 
 const App: React.FC = () => {
   return (
@@ -47,9 +63,9 @@ const App: React.FC = () => {
         <SideBar />
         <Box component="main" sx={{ flexGrow: 1 }}>
           <Routes>
-            {
-              pages.map((page, id) => <Route key={id} path={page.path} element={page.component} />)
-            }
+            {pages.map((page, id) => (
+              <Route key={id} path={page.path} element={page.component} />
+            ))}
           </Routes>
           <Footer />
         </Box>

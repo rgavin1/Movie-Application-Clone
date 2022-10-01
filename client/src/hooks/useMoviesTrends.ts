@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Program } from '../utils/types'
 import movieServices from '../services/movies'
+import { DEFAULT_TIMEOUT } from '../utils/helpers'
 
 const useMovies = () => {
     const [isFetching, setIsFetching] = useState(false)
@@ -12,7 +13,9 @@ const useMovies = () => {
             setIsFetching(true);
             try {
                 const { results } = movieServices.getTrendingMoviesForWeek();
-                setData(results);
+                setTimeout(() => {
+                    setData(results);
+                }, DEFAULT_TIMEOUT)
             } catch (e: any) {
                 setError(e)
             } finally {

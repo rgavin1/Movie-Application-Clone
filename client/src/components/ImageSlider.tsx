@@ -6,10 +6,10 @@ import { Program, PersonRawResult } from '../utils/types';
 import '../assets/styles/ImageSlider.css';
 import { IMAGE_SIZE_WIDTH_500 } from '../utils/helpers';
 
-const ImageOptions: React.FC<{ program: Program | PersonRawResult }> = ({ program }) => {
+const ImageOptions: React.FC<{ program: Program | PersonRawResult; loading?: boolean }> = ({ program, loading }) => {
   const { poster_path, profile_path, title, name, media_type, id } = program
 
-  let option;
+  let option = <div id={`${media_type}-${id}`} style={{ width: "100%", backgroundColor: "red", height: "273px" }} />;
 
   // Profile
   if (profile_path) {
@@ -29,7 +29,7 @@ const ImageOptions: React.FC<{ program: Program | PersonRawResult }> = ({ progra
   return <>{option}</>
 }
 
-const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResult[] | undefined }> = ({ text, programs }) => {
+const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResult[] | undefined; loading?: boolean }> = ({ text, programs, loading }) => {
   var settings = {
     arrows: true,
     dots: false,
@@ -45,8 +45,8 @@ const ImageSlider: React.FC<{ text: string; programs: Program[] | PersonRawResul
       <Slider {...settings}>
           {
           programs?.map((program: Program | PersonRawResult, id: number) =>
-            <Link key={id} to={`/${program?.media_type}/${program.id}`}>
-              <ImageOptions program={program} />
+            <Link key={id} to={`/${program?.media_type === "tv" ? "show" : program?.media_type}s/${program.id}/details`}>
+              <ImageOptions program={program} loading={loading} />
               <Typography textAlign="center" paddingY={1} color="white" variant="body2" component="div">{program?.title ? program?.title : program.name}</Typography>
             </Link>
           )
