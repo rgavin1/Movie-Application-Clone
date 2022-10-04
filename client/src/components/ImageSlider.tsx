@@ -2,9 +2,10 @@ import React from 'react';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
+
+import { IMAGE_SIZE_WIDTH_500 } from '../utils/helpers';
 import { Program, PersonRawResult } from '../utils/types';
 import '../assets/styles/ImageSlider.css';
-import { IMAGE_SIZE_WIDTH_500 } from '../utils/helpers';
 
 const ImageOptions: React.FC<{ program: Program | PersonRawResult; loading?: boolean }> = ({ program, loading }) => {
   const { poster_path, profile_path, title, name, media_type, id } = program
