@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mockNowPlayingResponse = exports.mockUpcomingMoviesResponse = exports.mockTopRatedMoviesResponse = exports.mockTrendingMoviesResponse = void 0;
+var mockFetchTrendingMovies_1 = require("./mockFetchTrendingMovies");
+Object.defineProperty(exports, "mockTrendingMoviesResponse", { enumerable: true, get: function () { return mockFetchTrendingMovies_1.mockTrendingMoviesResponse; } });
+var mockTopRatedMovies_1 = require("./mockTopRatedMovies");
+Object.defineProperty(exports, "mockTopRatedMoviesResponse", { enumerable: true, get: function () { return mockTopRatedMovies_1.mockTopRatedMoviesResponse; } });
+var mockUpcomingMovies_1 = require("./mockUpcomingMovies");
+Object.defineProperty(exports, "mockUpcomingMoviesResponse", { enumerable: true, get: function () { return mockUpcomingMovies_1.mockUpcomingMoviesResponse; } });
+var moviesNowPlaying_1 = require("./moviesNowPlaying");
+Object.defineProperty(exports, "mockNowPlayingResponse", { enumerable: true, get: function () { return moviesNowPlaying_1.mockNowPlayingResponse; } });
