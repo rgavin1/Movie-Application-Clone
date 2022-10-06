@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "start": "node server/dist/index.js",
+    "start": "node server/Movie-Application-Clone/dist/index.js",
     "build": "rm -rf dist && tsc -p ."
   },
   "devDependencies": {
