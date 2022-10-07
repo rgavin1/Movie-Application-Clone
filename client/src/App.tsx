@@ -14,6 +14,7 @@ import {
   SearchPage,
   TvShowDetailsPage,
   MovieDetailsPage,
+  LoginPage
 } from "./pages";
 
 export type Page = {
@@ -58,6 +59,7 @@ const pages: Page[] = [
 
 const App: React.FC = () => {
   return (
+    <>{true ? <LoginPage /> :
     <div className="app">
       <Box sx={{ display: "flex" }}>
         <SideBar />
@@ -70,7 +72,8 @@ const App: React.FC = () => {
           <Footer />
         </Box>
       </Box>
-    </div>
+      </div>
+    }</>
   );
 };
 
