@@ -1,95 +1,55 @@
 /**
  * TODO:
- * 
- * - [ ]: Logo
- * - [ ]: Add Background Image
- * - [ ]: Link to Sign Up page
- * - [ ]: Add reCAPTCHA
+ *
+ * - [x]: Logo
+ * - [x]: Add Background Image
+ * - [x]: Create Form Handlers
  * - [ ]: Errors:
  *      - [ ]: No Password or Username
  *      - [ ]: Wrong combinatio
  *      - [ ]: Server error
+ * - [ ]: Add reCAPTCHA
  * - [ ]: Authentication
+ * - [ ]: Link to Sign Up page
  * - [ ]: Unit Tests
  */
 import React from "react";
-import { Box, Button, Link, Stack, Typography, TextField } from "@mui/material";
+import { Typography } from "@mui/material";
 
-const formStyles = {
-    background: "#00000038",
-    borderRadius: "10px",
-    margin: "auto",
-    padding: "50px",
-    width: "80%",
-    maxWidth: "350px",
-};
+import Form from "./Form";
+
 const pageStyles = {
-    height: "100vh"
+  height: "100vh",
+  background: "#0000006b",
+  backgroundImage: `url(https://assets.nflxext.com/ffe/siteui/vlv3/afc06103-4d6a-4236-b496-34b671a7e9ba/0a1bb975-77bd-4c7e-8524-7fb05c9dd015/US-en-20221003-popsignuptwoweeks-perspective_alpha_website_medium.jpg)`,
+  backgroundBlendMode: "overlay",
 };
 
-const LowerForm = () => {
-    return (
-        <div style={{ marginTop: "40px", marginBottom: "50px" }}>
-            <Typography component="div" variant="body1" gutterBottom>
-                New to Netflix?{" "}
-                <Link href="#" underline="none">
-                    Sign up now.
-                </Link>
-            </Typography>
-            <Typography component="div" variant="body1" gutterBottom>
-                This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
-                <Link href="#" underline="none">
-                    Learn more.
-                </Link>
-            </Typography>
-        </div>
-    );
+const Logo = () => {
+  const title = (
+    <Typography
+      sx={{ textTransform: "uppercase", color: "#fff" }}
+      padding="40px"
+      component="div"
+      variant="h4"
+      gutterBottom
+    >
+      NeatFlix
+    </Typography>
+  );
+
+  return title;
 };
 
 const Login: React.FC = () => {
-    return (
-        <div id="login-page" style={pageStyles}>
-            <Typography sx={{ textTransform: "uppercase" }} component="div" variant="h4" gutterBottom>
-                NeatFlix
-            </Typography>
-            <Stack
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Box component="form" sx={formStyles}>
-                    <Typography component="div" variant="h4" gutterBottom>
-                        Sign In
-                    </Typography>
-                    <TextField
-                        id="outlined-required"
-                        label="Email or phone number"
-                        defaultValue="Hello World"
-                        fullWidth
-                        margin="normal"
-                    />
-                    <TextField
-                        id="outlined-required"
-                        label="Password"
-                        defaultValue="Hello World"
-                        fullWidth
-                        margin="normal"
-                    />
-                    <Button
-                        sx={{ marginTop: "25px", padding: "15px" }}
-                        size="large"
-                        fullWidth
-                        color="secondary"
-                        variant="contained"
-                    >
-                        Sign In
-                    </Button>
-                    {/* TODO: Add a Remember Me checkbox and Need help link */}
-                    <LowerForm />
-                </Box>
-            </Stack>
-        </div>
-    );
+  const page = (
+    <div id="login-page" style={pageStyles}>
+      <Logo />
+      <Form />
+    </div>
+  );
+
+  return page;
 };
 
 export default Login;
