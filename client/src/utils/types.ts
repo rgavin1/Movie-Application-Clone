@@ -311,3 +311,5 @@ export type Route = {
     path: string;
     icon: IconDefinition
 }
+
+export type Credentials = { username: string; password: string }

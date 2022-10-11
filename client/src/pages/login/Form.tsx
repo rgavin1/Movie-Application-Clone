@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Alert, AlertTitle, Box, Button, Link, Stack, Typography, TextField } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
+import useAuth from "../../hooks/useAuth";
 
 const formStyles = {
     background: "#fff",
@@ -43,19 +44,21 @@ const LowerForm = () => {
 };
 
 export type FormBase = {
-    emailOrPhone: string;
+    username: string;
     password: string;
 };
 
 const Form: React.FC = () => {
     const blankForm: FormBase = {
-        emailOrPhone: "",
+        username: "",
         password: "",
     };
 
+    const { data, modifiers } = useAuth()
+    const { status: { error, isFetching } } = data;
+
     const [formInputs, setFormInputs] = useState<FormBase>(blankForm);
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [hasError, setHasError] = useState(false);
+    const [isPending, setIsPending] = useState(false);
 
     const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -66,14 +69,14 @@ const Form: React.FC = () => {
     };
 
     const handleSubmission = () => {
-        setIsSubmitting(true);
+        setIsPending(true)
         setTimeout(() => {
-            setIsSubmitting(false);
-            setHasError(true);
+            modifiers.userLogin(formInputs)
+            setIsPending(false)
         }, 3000);
     };
 
-    const { emailOrPhone, password } = formInputs;
+    const { username, password } = formInputs;
 
     /**
      * This is an amazing way to verify all elements within the
@@ -82,7 +85,7 @@ const Form: React.FC = () => {
      * when I need it.
      *
      */
-    const canSubmit = [emailOrPhone, password].every(Boolean);
+    const canSubmit = [username, password].every(Boolean);
 
     return (
         <Stack direction="column" alignItems="center" justifyContent="center">
@@ -90,25 +93,25 @@ const Form: React.FC = () => {
                 <Typography component="div" variant="h4" gutterBottom>
                     Sign In
                 </Typography>
-                {hasError && <Alert severity="error">
+                {!!error && <Alert severity="error">
                     <AlertTitle>Error</AlertTitle>
                     Wrong Username/Password combination
                 </Alert>}
                 <TextField
-                    disabled={isSubmitting}
+                    disabled={isPending}
                     fullWidth
-                    id="emailOrPhone"
-                    label="Email or phone number"
+                    id="username"
+                    label="Username"
                     margin="normal"
-                    name="emailOrPhone"
+                    name="username"
                     onChange={handleUserInput}
-                    value={emailOrPhone}
+                    value={username}
                     variant="filled"
-                    error={hasError}
+                    error={!!error}
                 />
 
                 <TextField
-                    disabled={isSubmitting}
+                    disabled={isPending}
                     fullWidth
                     id="password"
                     label="Password"
@@ -118,7 +121,7 @@ const Form: React.FC = () => {
                     type="password"
                     value={password}
                     variant="filled"
-                    error={hasError}
+                    error={!!error}
                 />
                 <Button
                     sx={{ marginTop: "25px", padding: "15px" }}
@@ -126,10 +129,10 @@ const Form: React.FC = () => {
                     fullWidth
                     color="secondary"
                     variant="contained"
-                    disabled={!canSubmit || isSubmitting}
+                    disabled={!canSubmit || isPending}
                     onClick={handleSubmission}
                 >
-                    {isSubmitting ? (
+                    {isPending ? (
                         /**
                          * This is causing an error in the console. It's obvi
                          * bad practice. FIXME: Make an actual button that doesn't
