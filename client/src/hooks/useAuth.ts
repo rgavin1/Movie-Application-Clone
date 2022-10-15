@@ -5,7 +5,7 @@ import { Credentials } from '../utils/types';
 const useAuth = () => {
     const initialState = { username: "", password: "" }
 
-    const [error, setError] = useState();
+    const [error, setError] = useState(false);
     const [credentials, setCredentials] = useState<Credentials>(initialState);
     const [isFetching, setIsFetching] = useState(false);
 
@@ -13,11 +13,12 @@ const useAuth = () => {
         if (!!creds) {
             (async () => {
                 setIsFetching(true);
+                setError(false);
                 try {
                     const response = await authenticationService.login(creds);
                     setCredentials(response as any)
                 } catch (e: any) {
-                    setError(e)
+                    setError(true)
                 }
                 setIsFetching(false);
             })()

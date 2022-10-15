@@ -93,7 +93,7 @@ const Form: React.FC = () => {
                 <Typography component="div" variant="h4" gutterBottom>
                     Sign In
                 </Typography>
-                {!!error && <Alert severity="error">
+                {error && <Alert severity="error">
                     <AlertTitle>Error</AlertTitle>
                     Wrong Username/Password combination
                 </Alert>}
@@ -107,7 +107,7 @@ const Form: React.FC = () => {
                     onChange={handleUserInput}
                     value={username}
                     variant="filled"
-                    error={!!error}
+                    error={error}
                 />
 
                 <TextField
@@ -121,7 +121,7 @@ const Form: React.FC = () => {
                     type="password"
                     value={password}
                     variant="filled"
-                    error={!!error}
+                    error={error}
                 />
                 <Button
                     sx={{ marginTop: "25px", padding: "15px" }}

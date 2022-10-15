@@ -23,15 +23,13 @@ const axiosInstance = axios.create({ baseURL: BASE_URL })
  * @param credentials 
  * @returns 
  */
-const login = async (credentials: Credentials) => {
-    console.log('credentials', credentials)
-    const request = await axiosInstance.post("/login", { params: { credentials } });
+const login = async (credentials: Credentials): Promise<any> => {
+    const request = await axiosInstance.post("/login", credentials);
     console.log(request)
     return true
 }
 
 const logout = async (credentials: any) => {
-    // call the backend to find the creds
     const request = await axiosInstance.get("/login");
     console.log(request)
     return true
