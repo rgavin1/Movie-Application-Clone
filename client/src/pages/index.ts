@@ -4,6 +4,7 @@ export { default as Profile } from "./profile/Container";
 export { default as SearchPage } from "./search";
 export { default as TvShowsPage } from "./tvShow";
 export { default as LoginPage } from "./login";
+export { default as SignupPage } from "./signup";
 
 
 export { default as MovieDetailsPage } from "./movies/film";

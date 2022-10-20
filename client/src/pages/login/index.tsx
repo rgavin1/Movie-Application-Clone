@@ -19,7 +19,7 @@ import React from "react";
 import { Typography, Stack } from "@mui/material";
 
 import Form from "./Form";
-import { NETFLIX_BG_URL } from "./assets/images";
+import { NETFLIX_BG_URL } from "../../assets/images/images";
 
 const pageStyles = {
   height: "100vh",

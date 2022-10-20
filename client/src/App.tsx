@@ -14,7 +14,8 @@ import {
   SearchPage,
   TvShowDetailsPage,
   MovieDetailsPage,
-  LoginPage
+  LoginPage,
+  SignupPage
 } from "./pages";
 
 export type Page = {
@@ -59,7 +60,7 @@ const pages: Page[] = [
 
 const App: React.FC = () => {
   return (
-    <>{true ? <LoginPage /> :
+    <>{true ? <SignupPage /> :
     <div className="app">
       <Box sx={{ display: "flex" }}>
         <SideBar />
