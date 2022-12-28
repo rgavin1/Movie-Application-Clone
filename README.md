@@ -5,4 +5,10 @@
 
 ### How to start the application?
 
+#### 🔥 To fire-up the Client:
+
+1. Run `yarn start`
+2. Wait for the dev server to start
+3. In the browser, go to `http://localhost:3000/`
+
 ### How to test the application?
