@@ -126,10 +126,12 @@ const Form: React.FC = () => {
                     variant="filled"
                     error={error}
                 />
-                <Button
-                    sx={{ marginTop: "25px", padding: "15px" }}
-                    size="large"
-                    fullWidth
+                <Typography component="div" variant="caption" gutterBottom>
+                    By clicking the "Sign up" button below, I certify that I have read and agree to the TMDB terms of use and privacy policy.
+                </Typography>
+                <Stack direction="row" spacing={2} justifyContent="space-between" marginTop="15px">
+                    <Button
+                        size="large"
                     color="secondary"
                     variant="contained"
                     disabled={!canSubmit || isPending}
@@ -146,6 +148,10 @@ const Form: React.FC = () => {
                         "Sign Up"
                     )}
                 </Button>
+                    <Button size="large" color="error" variant="outlined">
+                        Cancel
+                    </Button>
+                </Stack>
             </Box>
         </Stack>
     );

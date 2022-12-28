@@ -14,10 +14,10 @@ const pageStyles = {
 
 const Logo = () => {
     const title =
-        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ marginX: "35px" }}>
+        <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ marginX: "25px" }}>
             <Typography
                 sx={{ textTransform: "uppercase", color: "#fff" }}
-                padding="40px"
+                padding="25px"
                 component="div"
                 variant="h4"
                 gutterBottom
