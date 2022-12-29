@@ -34,6 +34,8 @@ const Form: React.FC = () => {
     const [formInputs, setFormInputs] = useState<FormBase>(blankForm);
     const [isPending, setIsPending] = useState(false);
 
+    const handleClearForm = () => setFormInputs(blankForm);
+
     const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormInputs({
@@ -60,6 +62,8 @@ const Form: React.FC = () => {
      *
      */
     const canSubmit = [username, password].every(Boolean);
+
+    const enableButtons = !canSubmit || isPending
 
     return (
         <Stack direction="column" alignItems="center" justifyContent="center">
@@ -132,23 +136,23 @@ const Form: React.FC = () => {
                 <Stack direction="row" spacing={2} justifyContent="space-between" marginTop="15px">
                     <Button
                         size="large"
-                    color="secondary"
-                    variant="contained"
-                    disabled={!canSubmit || isPending}
-                    onClick={handleSubmission}
-                >
-                    {isPending ? (
-                        /**
-                         * This is causing an error in the console. It's obvi
-                         * bad practice. FIXME: Make an actual button that doesn't
-                         * cause errors :pray:
-                         */
-                        <LoadingButton loading>Submit</LoadingButton>
-                    ) : (
-                        "Sign Up"
-                    )}
-                </Button>
-                    <Button size="large" color="error" variant="outlined">
+                        color="secondary"
+                        variant="contained"
+                        disabled={enableButtons}
+                        onClick={handleSubmission}
+                    >
+                        {isPending ? (
+                            /**
+                             * This is causing an error in the console. It's obvi
+                             * bad practice. FIXME: Make an actual button that doesn't
+                             * cause errors :pray:
+                             */
+                            <LoadingButton loading>Submit</LoadingButton>
+                        ) : (
+                            "Sign Up"
+                        )}
+                    </Button>
+                    <Button size="large" disabled={enableButtons} color="error" onClick={handleClearForm}>
                         Cancel
                     </Button>
                 </Stack>
