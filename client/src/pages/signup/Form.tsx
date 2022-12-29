@@ -152,7 +152,7 @@ const Form: React.FC = () => {
                             "Sign Up"
                         )}
                     </Button>
-                    <Button size="large" disabled={enableButtons} color="error" onClick={handleClearForm}>
+                    <Button id="cancel" name="cancel" size="large" disabled={enableButtons} color="error" onClick={handleClearForm}>
                         Cancel
                     </Button>
                 </Stack>
