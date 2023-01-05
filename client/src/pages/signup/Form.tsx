@@ -86,7 +86,7 @@ const Form: React.FC = () => {
                     margin="normal"
                     name="username"
                     onChange={handleUserInput}
-                    value={username}
+                    value={username.trim()}
                     variant="filled"
                     error={error}
                 />
@@ -126,7 +126,7 @@ const Form: React.FC = () => {
                     name="email"
                     onChange={handleUserInput}
                     type="email"
-                    value={email}
+                    value={email.trim()}
                     variant="filled"
                     error={error}
                 />
