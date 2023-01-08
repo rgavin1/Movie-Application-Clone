@@ -60,7 +60,7 @@ const pages: Page[] = [
 
 const App: React.FC = () => {
   return (
-    <>{true ? <SignupPage /> :
+    <>{!true ? <SignupPage /> :
     <div className="app">
       <Box sx={{ display: "flex" }}>
         <SideBar />
