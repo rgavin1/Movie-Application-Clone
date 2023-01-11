@@ -6,5 +6,5 @@ require('dotenv').config();
 const accessToken = process.env.ACCESS_TOKEN
 export const axiosInstance = axios.create({
     baseURL: BASE_URL,
-    headers: { 'Autherization': `Bearer ${accessToken}` }
+    headers: { 'Content-Type': 'application/json' }
 });
