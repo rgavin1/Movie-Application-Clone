@@ -4,7 +4,7 @@ import { Grid, Button, Box, Modal } from '@mui/material';
 import { SkeletonButton } from '../../../components/skeletons';
 
 const YOUTUBE_BASE_URL = "https://www.youtube.com/embed/";
-const TEST_YT_ID = "tgbNymZ7vqY";
+const TEST_YT_ID = "nIvBBd8pU1s";
 const modalStyles = {
     position: 'absolute' as 'absolute',
     top: '50%',
