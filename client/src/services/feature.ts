@@ -12,7 +12,7 @@ const getTrending = async (): Promise<Program[]> => {
 
 const getFeature = async (media: Omit<MediaType, "person">): Promise<RawResponse> => {
     const { data } = await axiosInstance.get("/features", { params: { media } })
-    return data
+    return data.data
 }
 
 const featureService = {
