@@ -79,6 +79,7 @@ export type Program = {
     poster_path: string;
     vote_average: number;
     vote_count: number;
+    trailerLink?: any;
 };
 
 export type RawResponse = {

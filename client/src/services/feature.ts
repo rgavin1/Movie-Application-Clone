@@ -10,13 +10,19 @@ const getTrending = async (): Promise<Program[]> => {
     return data.results;
 }
 
-const getFeature = async (media: Omit<MediaType, "person">): Promise<RawResponse> => {
+const getFeatureByMedia = async (media: Omit<MediaType, "person">): Promise<Program> => {
+    const { data } = await axiosInstance.get("/features", { params: { media } })
+    return data
+}
+
+const getFeatureListByMedia = async (media: Omit<MediaType, "person">): Promise<RawResponse> => {
     const { data } = await axiosInstance.get("/features", { params: { media } })
     return data.data
 }
 
 const featureService = {
-    getFeature,
+    getFeatureByMedia,
+    getFeatureListByMedia,
     getTrending,
 };
 

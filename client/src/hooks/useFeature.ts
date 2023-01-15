@@ -9,18 +9,13 @@ const useFeature = (mediaType: Omit<MediaType, "person">) => {
     const [isSearching, setIsSearching] = useState(false);
     const [error, setError] = useState();
 
-    // TODO: Move to helper file
-    const randomizeList = (list: any[]) => {
-        return list[Math.floor(Math.random() * list.length)];
-    }
-
     useEffect(() => {
         (async () => {
             setIsSearching(true);
             try {
-                const { results } = await featureService.getFeature(mediaType);
-                setFeature(randomizeList(results));
-                setFeatureList(results)
+                const data = await featureService.getFeatureByMedia(mediaType);
+                setFeature(data);
+                setFeatureList([])
             } catch (e: any) {
                 setError(e);
             } finally {
