@@ -79,7 +79,7 @@ export type Program = {
     poster_path: string;
     vote_average: number;
     vote_count: number;
-    trailerLink?: any;
+    trailerLink?: string | null;
 };
 
 export type RawResponse = {
@@ -206,6 +206,7 @@ export type ShowDetailsRawResponse = {
     media_type?: string;
     genre_ids?: number[];
     mediaType?: any;
+    trailerLink?: string | null;
 };
 
 export type Department = "Acting" | "Directing" | "Production" | "Writing" | "Art" | "Visual Effects" | "Costume \u0026 Make-Up" | "Sound"
