@@ -9,12 +9,12 @@ const useMovies = () => {
     const [data, setData] = useState<Program[]>()
 
     useEffect(() => {
-        (() => {
+        (async () => {
             setIsFetching(true);
             try {
-                const { results } = movieServices.getTrendingMoviesForWeek();
+                const data = await movieServices.getTrendingMoviesForWeek();
                 setTimeout(() => {
-                    setData(results);
+                    setData(data.results);
                 }, DEFAULT_TIMEOUT)
             } catch (e: any) {
                 setError(e)

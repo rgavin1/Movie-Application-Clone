@@ -1,11 +1,21 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import express, { Request, Response } from 'express';
+import { axiosInstance } from '../../service/tmdb';
 
 import { mockNowPlayingResponse, mockTrendingMoviesResponse } from '../mocks/movies'
 
 const router = express.Router()
 
 const REACT_APP_TMDB_API_KEY = "API_KEY"
+
+router.get('/trending', async (_req: Request, res: Response) => {
+    try {
+        const { data } = await axiosInstance.get(`trending/movie/week`)
+        res.json(data)
+    } catch (e: AxiosError | any) {
+        res.status(400).json(e)
+    }
+})
 
 router.get('/now-playing', async (_req: Request, res: Response) => {
     try {

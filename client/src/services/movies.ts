@@ -1,14 +1,13 @@
 import axios from 'axios';
 
 import { RawResponse } from '../utils/types'
-import { trendingMoviesResponse } from './mocks/trendingMovies'
 
 const BASE_URL = `${process.env.REACT_APP_DEV_SERVER_PORT}/api/v1/movies`
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
-// TODO: Clean-up
-const getTrendingMoviesForWeek = (): RawResponse => {
-    return trendingMoviesResponse
+const getTrendingMoviesForWeek = async (): Promise<RawResponse> => {
+    const { data } = await axiosInstance.get('/trending')
+    return data
 }
 
 const fetchPopularMovies = async (): Promise<RawResponse> => {
