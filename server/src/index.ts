@@ -6,6 +6,7 @@ const authenticationRoute = require("./api/routes/authentication");
 const movieRoutes = require("./api/routes/movies");
 const searchRoute = require("./api/routes/search");
 const televisionRoutes = require("./api/routes/television");
+const personsRoutes = require("./api/routes/persons")
 
 const PORT = process.env.PORT || 3000
 
@@ -20,6 +21,7 @@ app.use("/api/v1/login", authenticationRoute)
 app.use("/api/v1/movies", movieRoutes)
 app.use("/api/v1/search", searchRoute)
 app.use("/api/v1/tv", televisionRoutes)
+app.use("/api/v1/persons", personsRoutes)
 
 app.get("/api/v1/", (req, res) => {
     res.send(

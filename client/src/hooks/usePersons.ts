@@ -11,7 +11,7 @@ const usePersons = () => {
         (async () => {
             setIsFetching(true)
             try {
-                const { results } = await PersonsServices.getTrendingPersons();
+                const { results } = await PersonsServices.getTrendingPerformers();
                 setData(results)
             } catch (e: any) {
                 setError(e)
@@ -19,7 +19,7 @@ const usePersons = () => {
                 setIsFetching(false)
             }
         })()
-    })
+    }, [])
     return { data, isFetching, error }
 }
 

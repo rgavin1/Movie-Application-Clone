@@ -1,11 +1,13 @@
-import { trendingPersonsResponse } from "./mocks/trendingPersons"
+import { axiosInstances } from "../constants"
 
-const getTrendingPersons = () => {
-    return trendingPersonsResponse
+
+const getTrendingPerformers = async (): Promise<any> => {
+    const { data } = await axiosInstances.persons.get("/trending")
+    return data
 }
 
 const PersonsServices = {
-    getTrendingPersons
+    getTrendingPerformers
 }
 
 export default PersonsServices;
