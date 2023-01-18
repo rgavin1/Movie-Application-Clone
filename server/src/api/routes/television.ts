@@ -1,12 +1,10 @@
 import axios from 'axios';
 import express, { Request, Response } from 'express'
+import { axiosInstance } from '../../service/tmdb';
 import { mockOnAirResponse, mockAiringTodayResponse, mockTrendingShowsResponse, mockPopularTelevisionResponse, mockTelevisionShowDetailsResponse, } from '../mocks/tv'
 
 const REACT_APP_TMBD_API_KEY = "API_KEY"
 const router = express.Router()
-
-const BASE_URL = "https://api.themoviedb.org/3"
-const axiosInstance = axios.create({ baseURL: BASE_URL })
 
 router.get('/top-rated', async (_req: Request, res: Response) => {
     if (!mockTrendingShowsResponse) {
@@ -20,16 +18,13 @@ router.get('/top-rated', async (_req: Request, res: Response) => {
     res.send(mockTrendingShowsResponse)
 })
 
-router.get('/trending', async (_req: Request, res: Response) => {
-    if (!mockTrendingShowsResponse) {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/trending/tv/week?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
-            res.send(response)
+router.get('/trending', async (_req: Request, res: Response): Promise<void> => {
+    try {
+        const { data } = await axiosInstance.get(`trending/tv/week`)
+        res.json(data)
         } catch (e) {
-            res.status(404).send(e)
-        }
+        res.status(400).json(e)
     }
-    res.send(mockTrendingShowsResponse)
 })
 
 router.get('/popular', async (_req: Request, res: Response) => {
