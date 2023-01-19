@@ -45,7 +45,7 @@ const getShowDetailsById = async (id?: string): Promise<any> => {
 }
 
 const getCreditsById = async (id?: string): Promise<CastRawResponse> => {
-    const { data } = await axiosInstance.get(`/credits/${id}`)
+    const { data } = await axiosInstance.get(`/${id}/credits`)
     return data
 }
 

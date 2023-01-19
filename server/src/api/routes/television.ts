@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import express, { Request, Response } from 'express'
 import { axiosInstance } from '../../service/tmdb';
-import { mockOnAirResponse, mockAiringTodayResponse, mockTrendingShowsResponse, mockPopularTelevisionResponse, mockTelevisionShowDetailsResponse, } from '../mocks/tv'
+import { mockOnAirResponse, mockAiringTodayResponse, mockTrendingShowsResponse, mockPopularTelevisionResponse } from '../mocks/tv'
 
 const REACT_APP_TMBD_API_KEY = "API_KEY"
 const router = express.Router()
@@ -88,27 +88,21 @@ router.get('/recommendations/:id', async (req: Request, res: Response) => {
 })
 
 router.get('/details/:id', async (req: Request, res: Response) => {
-    if (!mockTelevisionShowDetailsResponse) {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/tv/${req.params.id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
-            res.send(response)
-        } catch (e) {
-            res.status(404).send(e)
-        }
+    try {
+        const { data } = await axiosInstance.get(`tv/${req.params.id}`)
+        res.json(data)
+    } catch (e: AxiosError | any) {
+        res.status(404).send(e)
     }
-    res.send(mockTelevisionShowDetailsResponse)
 })
 
-router.get('/credits/:id', async (req: Request, res: Response) => {
-    if (!mockOnAirResponse) {
-        try {
-            const response = await axios.get(`https://api.themoviedb.org/3/tv/${req.params.id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`)
-            res.send(response)
-        } catch (e) {
-            res.status(404).send(e)
-        }
+router.get('/:id/credits', async (req: Request, res: Response) => {
+    try {
+        const { data } = await axiosInstance.get(`tv/${req.params.id}/credits`)
+        res.json(data)
+    } catch (e) {
+        res.status(404).send(e)
     }
-    res.send(mockOnAirResponse)
 })
 
 module.exports = router

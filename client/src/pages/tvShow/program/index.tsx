@@ -12,7 +12,7 @@ import ImageSlider from '../../../components/ImageSlider';
 
 const ShowDetails: React.FC = () => {
     const { id } = useParams();
-    const { data: cast } = useCast();
+    const { data: cast } = useCast(id);
     const { data: trendingShows } = useTrendingShows();
 
     const [data, setData] = useState<ShowDetailsRawResponse>();
