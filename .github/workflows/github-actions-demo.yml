@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build-package
-        working-directory: ./client
+        working-directory: client
         run: |
           cd client
           yarn build
