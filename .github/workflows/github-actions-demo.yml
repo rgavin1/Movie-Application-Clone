@@ -7,6 +7,5 @@ jobs:
     steps:
       - name: build-package
         uses: actions/checkout@v3
-        working-directory: client
         with:
           cmd: build
