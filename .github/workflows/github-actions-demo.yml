@@ -7,6 +7,4 @@ jobs:
     steps:
       - name: build-package
         # working-directory: client
-        run: |
-          cd client
-          yarn build
+        run: yarn build
