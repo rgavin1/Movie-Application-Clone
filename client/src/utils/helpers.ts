@@ -6,6 +6,17 @@ export const IMAGE_SIZE_WIDTH_500_LOGO = "https://image.tmdb.org/t/p/w500";
 export const IMAGE_SIZE_WIDTH_500 = "https://image.tmdb.org/t/p/w500/";
 export const IMAGE_SIZE_HEIGHT_632 = "https://image.tmdb.org/t/p/h632/";
 export const IMAGE_SIZE_ORIGINAL = "https://image.tmdb.org/t/p/original/";
+export const POSTER_SIZE_W92 = "https://image.tmdb.org/t/p/w342/";
+
+// "poster_sizes": [
+//   "w92",
+//   "w154",
+//   "w185",
+//   "w342",
+//   "w500",
+//   "w780",
+//   "original"
+// ]
 
 export const MovieIdGenre: { [key: number]: MovieGenre } = {
   28: "Action",

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { Hero } from "../../../layouts";
 import Links from "../../../components/Links";
 import Information from "../../../components/Information";
 import { Container } from "@mui/material";
+import { InternalHero } from "../../../layouts/hero";
 
 const SingleFlim: React.FC = () => {
     const { id } = useParams();
@@ -28,7 +28,7 @@ const SingleFlim: React.FC = () => {
 
     return (
         <div id="movie-details">
-            <Hero mediaType="movie" />
+            <InternalHero mediaType="movie" />
             <Container>
                 <Links item={show} />
                 <Information item={show} media="movie" />

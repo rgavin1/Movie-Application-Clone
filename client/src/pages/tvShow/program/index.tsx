@@ -4,11 +4,11 @@ import { useParams } from 'react-router';
 import Information from '../../../components/Information';
 import Links from '../../../components/Links';
 import { CastSlider } from '../../../components';
-import { Hero } from '../../../layouts';
 import televisionServices from '../../../services/television';
 import { ShowDetailsRawResponse } from '../../../utils/types';
 import { useCast, useTrendingShows } from '../../../hooks';
 import ImageSlider from '../../../components/ImageSlider';
+import { InternalHero } from '../../../layouts/hero';
 
 const ShowDetails: React.FC = () => {
     const { id } = useParams();
@@ -34,7 +34,7 @@ const ShowDetails: React.FC = () => {
     }, [id]);
 
     return <div className="tvshow-details">
-        <Hero mediaType="tv" searchedProgram={data} />
+        <InternalHero mediaType="tv" searchedProgram={data} />
         <Container>
             <Links item={data} />
             <Information item={data} media="tv" />
