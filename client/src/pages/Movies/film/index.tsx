@@ -4,31 +4,27 @@ import Links from "../../../components/Links";
 import Information from "../../../components/Information";
 import { Container } from "@mui/material";
 import { InternalHero } from "../../../layouts/hero";
+import movieServices from "../../../services/movies";
 
 const SingleFlim: React.FC = () => {
     const { id } = useParams();
     const [show, setShow] = useState({});
 
     useEffect(() => {
-        // const fetchShow = () => {
-        //     fetch(
-        //         `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=en-US`
-        //     )
-        //         .then((res) => res.json())
-        //         .then((items) => {
-        //             setShow(items);
-        //             // fetchCast();
-        //         })
-        //         .catch((err) => {
-        //             console.log(err);
-        //         });
-        // };
-        // fetchShow();
+        (async () => {
+            try {
+                const response = await movieServices.getMovieById(id)
+                setShow(response)
+            } catch (error) {
+                // FIXME:
+                console.log('error', error)
+            }
+        })()
     }, [id]);
 
     return (
         <div id="movie-details">
-            <InternalHero mediaType="movie" />
+            <InternalHero mediaType="movie" searchedProgram={show} />
             <Container>
                 <Links item={show} />
                 <Information item={show} media="movie" />

@@ -10,6 +10,11 @@ const getTrendingMoviesForWeek = async (): Promise<RawResponse> => {
     return data
 }
 
+const getMovieById = async (id: any): Promise<RawResponse> => {
+    const { data } = await axiosInstance.get(`/${id}/info`)
+    return data
+}
+
 const fetchPopularMovies = async (): Promise<RawResponse> => {
     const { data } = await axiosInstance.get("/popular")
     return data
@@ -32,6 +37,7 @@ const fetchUpcomingMovies = async (): Promise<RawResponse> => {
 
 const movieServices = {
     getTrendingMoviesForWeek,
+    getMovieById,
     fetchPopularMovies,
     fetchNowPlaying,
     fetchUpcomingMovies,

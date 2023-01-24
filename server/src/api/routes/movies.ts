@@ -17,6 +17,20 @@ router.get('/trending', async (_req: Request, res: Response) => {
     }
 })
 
+// Get a movie by its id
+router.get('/:id/info', async (req: Request, res: Response): Promise<void> => {
+    const { id } = req.params
+
+    if (!id) res.status(400).json({ "message": "missing id" })
+
+    try {
+        const { data } = await axiosInstance.get(`movie/${id}`)
+        res.json(data)
+    } catch (e: AxiosError | any) {
+        res.status(400).json(e)
+    }
+})
+
 router.get('/now-playing', async (_req: Request, res: Response) => {
     try {
         if (!mockNowPlayingResponse) {

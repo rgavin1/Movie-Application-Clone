@@ -13,7 +13,7 @@ import { Header, Network, Information, Overview, Modal } from "..";
 
 const Hero: React.FC<{
   mediaType: Omit<MediaType, "person">;
-  searchedProgram?: ShowDetailsRawResponse;
+  searchedProgram?: ShowDetailsRawResponse | any;
 }> = ({ mediaType, searchedProgram }) => {
   const { featureData: data, isSearching } = useFeature(mediaType);
   const featureInfo = searchedProgram || (data && data);
