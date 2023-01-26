@@ -105,4 +105,17 @@ router.get('/:id/credits', async (req: Request, res: Response) => {
     }
 })
 
+router.get('/:id/links', async (req: Request, res: Response) => {
+    const { id } = req.params
+
+    if (!id) res.status(400).json({ "message": "missing ID" })
+
+    try {
+        const { data } = await axiosInstance.get(`tv/${id}/external_ids`)
+        res.json(data)
+    } catch (e) {
+        res.status(404).send(e)
+    }
+})
+
 module.exports = router

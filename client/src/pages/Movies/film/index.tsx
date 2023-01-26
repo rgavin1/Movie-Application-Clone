@@ -27,6 +27,8 @@ const SingleFlim: React.FC = () => {
             <InternalHero mediaType="movie" searchedProgram={show} />
             <Container>
                 <Links item={show} />
+                <h1>Networks</h1>
+                <h1>Seasons</h1>
                 <Information item={show} media="movie" />
                 {/* <CastSlider text="Cast" cast={cast} /> */}
             </Container>
