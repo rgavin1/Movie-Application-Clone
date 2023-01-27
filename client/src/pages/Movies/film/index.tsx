@@ -29,6 +29,7 @@ const SingleFlim: React.FC = () => {
                 <Links item={show} />
                 <h1>Networks</h1>
                 <h1>Seasons</h1>
+                <h1>General</h1>
                 <Information item={show} media="movie" />
                 {/* <CastSlider text="Cast" cast={cast} /> */}
             </Container>
