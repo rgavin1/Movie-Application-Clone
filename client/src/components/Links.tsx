@@ -7,6 +7,7 @@ import axios from 'axios';
 // https://www.instagram.com/wednesdaynetflix/
 // https://twitter.com/wednesdayaddams
 // https://www.wikidata.org/wiki/Q105553568
+// https://www.facebook.com/netflixvalhalla/
 
 const ExternalBaseUrls = {
     imdb_id: "https://www.imdb.com/title/",
@@ -14,7 +15,7 @@ const ExternalBaseUrls = {
     freebase_id: null,
     tvdb_id: null,
     tvrage_id: null,
-    facebook_id: null,
+    facebook_id: "https://www.facebook.com/",
     instagram_id: "https://www.instagram.com/",
     twitter_id: "https://twitter.com/",
     wikidata_id: "https://www.wikidata.org/wiki/"
@@ -27,7 +28,7 @@ type ExternalIds = {
     tvdb_id: number | null;
     tvrage_id: number | null;
     facebook_id: string | null;
-    instagram_id: string;
+    instagram_id: string | null;
     twitter_id: string | null;
     id: number | null;
     wikidata_id?: string | null;
