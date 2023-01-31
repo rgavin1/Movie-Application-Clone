@@ -37,7 +37,7 @@ const ShowDetails: React.FC = () => {
         <InternalHero mediaType="tv" searchedProgram={data} />
         <Container>
             <Links item={data} />
-            <Information item={data} media="tv" />
+            <Information item={data} media="tv" cast={cast} />
             <CastSlider text="Series Cast" teamMembers={cast} />
             <ImageSlider text="Trending Shows" programs={trendingShows} />
             {/* TODO: ADD Recommendations Slider */}

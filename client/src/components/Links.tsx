@@ -3,6 +3,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faImdb, faFacebook, faInstagram, faWikipediaW } from '@fortawesome/free-brands-svg-icons'
 import axios from 'axios';
+import { Link, Stack } from '@mui/material';
 
 // https://www.imdb.com/title/tt0434665/
 // https://www.instagram.com/wednesdaynetflix/
@@ -71,7 +72,7 @@ const baseExternalIds: ExternalIds = {
 const socialMediaLink = (linkName: string, linkId: string): JSX.Element => {
     const { title, url, icon } = ExternalLinks[linkName]
 
-    return <li title={title}><a href={url + linkId} target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={icon as any} /></a></li>
+    return <Link title={title} href={url + linkId} target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={icon as any} fontSize={22} /></Link>
 }
 
 const ListOfExternalLinks = (externalIds: ExternalIds): JSX.Element[] => {
@@ -107,11 +108,13 @@ const Links: React.FC<{ item: any }> = ({ item }) => {
     }, [item])
 
     return <>
-        <h1>Links</h1>
-        <ul className="information__links">
-            <li title="homepage"><a href={item?.homepage} target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faLink} /></a></li>
+        {/* <h1>Links</h1> */}
+        <Stack direction="row" spacing={3} paddingY={3}>
+            <Link title="homepage" href={item?.homepage} underline="none" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faLink} fontSize={22} />
+            </Link>
             {ListOfExternalLinks(externalIds).map((link: JSX.Element) => link)}
-        </ul>
+        </Stack>
     </>
 }
 
