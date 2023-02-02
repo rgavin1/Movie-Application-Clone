@@ -36,6 +36,7 @@ const Hero: React.FC<{
   return (
     <Grid container p={4} style={backgroundStyles} direction="row">
       <Grid item xs md={4} display="flex" justifyContent="center">
+        {/* FIXME:  */}
         <img src={POSTER_SIZE_W92 + featureInfo?.poster_path} alt="" />
       </Grid>
       <Grid item xs md={8}>

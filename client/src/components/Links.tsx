@@ -108,7 +108,6 @@ const Links: React.FC<{ item: any }> = ({ item }) => {
     }, [item])
 
     return <>
-        {/* <h1>Links</h1> */}
         <Stack direction="row" spacing={3} paddingY={3}>
             <Link title="homepage" href={item?.homepage} underline="none" target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faLink} fontSize={22} />
